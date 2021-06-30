@@ -3,11 +3,13 @@ const initialState = {
 }
 
 export const userReducer = (state = initialState, action) => {
-debugger
+  debugger
   switch (action.type) {
-      case "save_user":
-          return { ...state, user: action.payload };
-      default:
-          return state;
+    case "save_user":
+      return { ...state, user: action.payload };
+    case "save_teacher":
+      return { ...state, user: action.payload };
+    default:
+      return state;
   }
 }

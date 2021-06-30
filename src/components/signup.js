@@ -3,17 +3,19 @@ import { useHistory } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import { saveUser } from "../action";
 import { signupToServer } from '../services/signup';
+import { getAllSubjectsFromServer } from '../services/getAllSubjects'
 import '../style/signup.css';
 
 const Signup = (props) => {
     let history = useHistory();
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [subject, setSubject] = useState('');
+    const [teachers, setTeachers] = useState('');
 
     const signup = async (subject, firstName, lastName, id, email, password) => {
         try {
@@ -27,6 +29,23 @@ const Signup = (props) => {
             alert("הרישום נכשל😒");
         }
     }
+
+    const getAllSubjects = async () => {
+
+        try {
+
+            const res = await getAllSubjectsFromServer();
+            console.log("--------"+res);
+
+            setTeachers(res);
+
+
+        }
+        catch (error) {
+            alert("הרישום נכשל😒");
+        }
+    }
+
 
 
     return (<div className="login">
@@ -94,18 +113,18 @@ const Signup = (props) => {
 
 
         <div>
-            <select onChange={e => { setSubject(e.target.value) }} >
-                < option >a</option>
-                < option> b</option>
-            </select>
+            <button onChange={() => { getAllSubjects() }} >
+               
+            </button>
         </div>
         <div>
             <button className="signup" onClick={() => {
                 signup(subject, firstName, lastName, id, email, password)
-                dispatch({ type: "save_user", payload:{ subject, firstName, lastName, id, email, password }})
+                dispatch({ type: "save_user", payload: { subject, firstName, lastName, id, email, password } })
             }
             }> רישום   </button>
         </div>
+
     </div>
     );
 
@@ -120,3 +139,5 @@ const Signup = (props) => {
 // export default Signup;
 export default Signup;
 // connect(null, { saveUser })(
+
+

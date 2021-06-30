@@ -9,7 +9,7 @@
 //     });
 // }
 
-export const newLessonToServer=(teacher,numLesson, lessonName,file,date,notes,time) => {
+export const newLessonToServer=(teacher,numLesson, lessonName,file,date,notes,time,subject) => {
 fetch('http://localhost:3000/postLesson/', {
   method: 'POST',
   headers: {
@@ -23,7 +23,8 @@ fetch('http://localhost:3000/postLesson/', {
     file: {file},
     date: {date},
     notes: {notes},
-    time: {time}
+    time: {time},
+    subject
   })
 });
 }

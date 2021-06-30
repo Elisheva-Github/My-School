@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { signupTeacherToServer } from '../services/signupTeacher';
+import { connect, useDispatch } from "react-redux";
 import '../style/signup.css';
 
 const Admin = () => {
-
+    const dispatch=useDispatch();
     let history = useHistory();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -84,15 +85,26 @@ return (<div>
                 setPassword(e.target.value)
             }} />
     </div>
-
-    <div>
-           <select onChange={e=>{setSubject(e.target.value)}} >
-          < option >a</option> 
-          < option> b</option> 
-           </select>
+    <div  >
+        <div >
+            <input type="text"  name="subject"
+                placeholder=":הכנס מקצוע שהמורה מלמד" 
+                value={subject} onChange={(e) => {
+                    console.log(e.target.value)
+                    setSubject(e.target.value)
+                }} />
         </div>
-    <div>
-        <button className="signup" onClick={() => signupTeacher(subject,firstName, lastName, id, email, password)}> רישום   </button>
+    </div>
+
+    
+    <div> 
+        <button className="signup" onClick={() => {
+            signupTeacher(subject,firstName, lastName, id, email, password)
+            dispatch({ type: "save_teacher", payload:{ subject, firstName, lastName, id, email, password }})
+        }
+            }> רישום   </button>
+      
+
     </div>
 </div>
 )

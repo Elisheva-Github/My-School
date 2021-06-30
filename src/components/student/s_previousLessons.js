@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { previousLessonToServer } from '../../services/previousLessons';
+import {connect, useDispatch} from "react-redux";
 
-
-const PreviousLessons = () => {
+const PreviousLessons = (props) => {
 
 
     const [lesss, setless] = useState();
@@ -22,25 +22,50 @@ const PreviousLessons = () => {
                 
                 console.log(data);
                  (setless(data))})
-                
 
-
-
+               
     }, [])
 
-    return (<div>
-        <div>{
-            lesss?.map(less=><div>
-            {less?.numLesson?.numLesson}
-            {less?.lessonName?.lessonName}
-            {less?.file?.file}
-            {less?.date?.date}
-            {less?.notes?.notes}
-            {less?.time?.time}
-            </div>)}
-        </div>
-    </div>
+
+// 
+
+    return (
+    // <div>
+    //     <div>{
+    //         lesss?.map(herLess=><div>
+    //         {herLess?.numLesson?.numLesson}
+    //         {herLess?.lessonName?.lessonName}
+    //         {herLess?.file?.file}
+    //         {herLess?.date?.date}
+    //         {herLess?.notes?.notes}
+    //         {herLess?.time?.time}
+    //         </div>)}
+    //     </div>
+    // </div>
+    <div>
+    {lesss.filter(ls => ls.subject === props.subject).map(herLess => (
+      <li>
+       {herLess?.numLesson?.numLesson}
+            {herLess?.lessonName?.lessonName}
+            {herLess?.file?.file}
+             {herLess?.date?.date}
+             {herLess?.notes?.notes}
+             {herLess?.time?.time}
+      </li>
+    ))}
+  </div>
     )
 }
 
-export default PreviousLessons;
+//export default PreviousLessons;
+
+
+const mapStateToProps = (state) => {
+    
+    return {
+      fname: state.user?.user?.firstName,
+      subject: state.user?.user?.subject,
+    };
+  };
+
+  export default connect(mapStateToProps, {})(PreviousLessons);

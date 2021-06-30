@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../../style/teacher/newClassRoom.css';
 import {newLessonToServer} from '../../services/newClassRoom';
 import { useHistory } from 'react-router-dom';
+import {connect, useDispatch} from "react-redux";
 
 const NewClassRoom = (props) => {
+  //  const dispatch=useDispatch();
     const [numLesson, setNumLesson] = useState('');
     const [lessonName, setLessonName] = useState('');
     const [file, setFile] = useState('');
@@ -11,12 +13,13 @@ const NewClassRoom = (props) => {
     const [notes, setNotes] = useState('');
     const [time, setTime] = useState('');
     const [teacher, setTeacher] = useState('');
-
-const history=useHistory()
+   
+    const history=useHistory()
     const postLesson=async(teacher,numLesson, lessonName,file,date,notes,time)=>
     {
+            let subject1=props.subject;
             let res = '';
-            res = await newLessonToServer(teacher,numLesson, lessonName,file,date,notes,time);
+            res = await newLessonToServer(teacher,numLesson, lessonName,file,date,notes,time,subject1);
             console.log(res);
             alert("lesson send to server👍👍👍")
         
@@ -74,4 +77,14 @@ const history=useHistory()
     );
 }
 
-export default NewClassRoom;
+//export default NewClassRoom;
+
+
+const mapStateToProps = (state) => {
+
+    return {
+        subject: state.user?.user?.subject,
+    };
+  };
+  // export default connect(mapStateToProps, {})(Login);
+  export default connect(mapStateToProps, {})(NewClassRoom);

@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import {connect, useDispatch} from "react-redux";
 import { loginToServer } from '../services/login';
 import '../style/login.css';
-const Login = (props) => {
-const dispatch=useDispatch()
+  const Login = (props) => {
+  const dispatch=useDispatch();
   const history = useHistory();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');

@@ -5,3 +5,11 @@ export const saveUser = (user) => {
     };
 };
 
+export const saveTeacher = (teacher) => {
+    return function (dispatch) {
+        dispatch({ type: "save_teacher", payload:teacher });
+    };
+};
+
+
+
