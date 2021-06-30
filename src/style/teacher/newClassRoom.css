@@ -1,0 +1,24 @@
+.classRoomImg{
+    position: absolute;
+    left: 10rem;
+    width: 50rem;
+    height: 20rem;
+}
+
+
+.numLesson{
+    position: absolute;
+    width: 4rem;
+    height: 2rem;
+    top: 19rem;
+    left: 700px;
+    /* border-radius: 10rem;*/
+    }
+
+   .dateLesson {
+    position: absolute;
+    width: 8rem;
+    height: 2rem;
+    top: 22rem;
+    left: 700px
+    }

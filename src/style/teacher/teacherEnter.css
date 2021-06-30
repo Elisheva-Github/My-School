@@ -1,0 +1,124 @@
+.teachetImg{
+    position: absolute;
+    left: 10%;
+    width: 80%;
+}
+
+.logo{
+    position: absolute;
+    /* width: 219px;
+    height: 85px;
+    left: 800px;
+    top: 430px; */
+
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    }
+
+
+.previouslessons{
+position: absolute;
+background: #FFFFFF;
+box-shadow: 7.5px 2px 5px 1px rgba(0.25, 0, 0, 0.25);
+border-radius: 42px;
+
+position: absolute;
+width: 300px;
+height: 95px;
+top: 1000px;
+left:1730px;
+font-family: radius ML v2 AAA;
+font-style: normal;
+font-weight: 600;
+font-size: 30px;
+line-height: 29px;
+text-align: center;
+
+color: #000000;
+
+}
+
+.test{
+    position: absolute;
+    background: #FFFFFF;
+    box-shadow: 7.5px 2px 5px 1px rgba(0.25, 0, 0, 0.25);
+    border-radius: 42px;
+    
+    position: absolute;
+    width: 300px;
+    height: 95px;
+    top: 1000px;
+    left:1370px;
+    }.hw{
+        position: absolute;
+        background: #FFFFFF;
+        box-shadow: 7.5px 2px 5px 1px rgba(0.25, 0, 0, 0.25);
+        border-radius: 42px;
+        
+        position: absolute;
+        width: 300px;
+        height: 95px;
+        top: 1000px;
+        left:1030px;
+        }.attendance{
+            position: absolute;
+            background: #FFFFFF;
+            box-shadow: 7.5px 2px 5px 1px rgba(0.25, 0, 0, 0.25);
+            border-radius: 42px;
+            
+            position: absolute;
+            width: 300px;
+            height: 95px;
+            top: 1000px;
+            left:700px;
+            }
+    .textbutton{
+        position: absolute;
+width: 126px;
+height: 28px;
+left: 1305.33px;
+top: 907px;
+
+font-family: Ploni ML v2 AAA;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 29px;
+text-align: right;
+
+color: #000000;
+    }
+
+.att{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 1020px;
+    left:910px;
+    z-index: 1;
+}
+/* .test{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 1020px;
+    left:910px;
+    z-index: 1;
+}
+.plessons{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 1020px;
+    left:910px;
+    z-index: 1;
+}
+.hw{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 1020px;
+    left:910px;
+    z-index: 1;
+} */

@@ -1,0 +1,225 @@
+
+
+/* Rectangle 4 */
+ /* .Rectangle{
+position: absolute;
+width: 932px;
+height: 460px;
+left: 494px;
+top: 428px;
+background: #EEF8FD;
+border-radius: 70px;
+} */
+.Rectangle{
+position: absolute;
+width: 58.25rem;
+height: 28.75rem;
+left: 30.875rem;
+top: 26.75rem;
+background: #EEF8FD;
+border-radius: 4.375rem;
+}
+/* Profil*/
+.Profil{
+position: absolute;
+position: absolute;
+    height: 120px;
+    left: 900px;
+    width: 120px;
+    top: 360px;
+    z-index: 1;
+
+}
+
+/*
+position: absolute;
+    height: 120rem;
+    width: 120rem;
+    left: 900rem;
+    tpo: 360px;
+    z-index: 1;
+*/
+/* Group 7 */
+.logo{
+position: absolute;
+width: 219px;
+height: 85px;
+left: 848px;
+top: 192px;
+}
+
+/* login */
+
+.login{
+    /*     /* width: 95rem;
+height: 55rem;*/
+position: relative;
+width: 1920px;
+height: 1080px;
+background: #FFFFFF;
+}
+
+
+
+/* !םיאבה םיכורב */
+.welcome{
+    position: absolute;
+    left: 880px;
+    top: 305px;
+    width: 150px;
+    height: 25px;
+}
+
+
+/* Group 4 */
+.group4{
+/* Group 4 */
+position: absolute;
+width: 640px;
+height: 67px;
+left: 640px;
+top: 559px;
+
+}
+
+/* Rectangle 2 */
+
+.Rectangle2{
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+background: #FFFFFF;
+border-radius: 30px;
+
+}
+/* הדש */
+
+.group4{
+    
+position: absolute;
+width: 640px;
+height: 75px;
+left: 640px;
+right: 640px;
+top: 559px;
+}
+
+.name{
+    font-family: Ploni ML v2 AAA;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 31px;
+    /* identical to box height */
+    text-align: right;
+    color: #000000;
+    position: absolute;
+    left: 0%;
+    right:0%;
+    top: 0%;
+    bottom: 0%;
+    width: 640px;
+    background: #FFFFFF;
+    border-radius: 30px;
+
+
+}
+.group3{
+    /* Group 3 */
+
+position: absolute;
+width: 640px;
+height: 67px;
+left: 640px;
+top: 651px;
+
+
+}
+
+/* הדש */
+
+.password{
+position: absolute;
+left: 85.31%;
+right: 5.78%;
+top: 29.85%;
+bottom: 23.88%;
+
+font-family: Ploni ML v2 AAA;
+font-style: normal;
+font-weight: bold;
+font-size: 21px;
+line-height: 31px;
+/* identical to box height */
+text-align: right;
+
+color: #000000;
+
+
+}
+
+
+
+.group2
+{
+    /* Group 2 */
+
+    position: absolute;
+    width: 191px;
+    height: 60px;
+    left: 864px;
+    top: 761px;
+    border-radius: 42px;
+
+}
+/* רותפכ */
+.button{
+position: absolute;
+width: 191px;
+height: 60px;
+left: 864px;
+top: 761px;
+position: absolute;
+
+background: #00C694;
+border-radius: 42px;
+position: absolute;
+left: 19.37%;
+right: 18.85%;
+top: 28.33%;
+bottom: 26.67%;
+font-family: Ploni ML v2 AAA;
+font-style: normal;
+font-weight: 600;
+font-size: 21px;
+line-height: 31px;
+text-align: center;
+color: #EEF8FD;
+}
+
+.forgotPassword{
+    position: absolute;
+    left: 34.69%;
+    right: 58.97%;
+    top: 70.47%;
+    bottom: 40.94%;
+}
+
+.goToSignup{ 
+    position: absolute;
+    top: 80%;
+    right: 40%;
+    left: 49%;
+}
+
+
+
+
+
+
+
+
+
+
