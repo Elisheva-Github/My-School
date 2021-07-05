@@ -17,9 +17,10 @@ const NewClassRoom = (props) => {
     const history=useHistory()
     const postLesson=async(teacher,numLesson, lessonName,file,date,notes,time)=>
     {
-            let subject1=props.subject;
+           
             let res = '';
-            res = await newLessonToServer(teacher,numLesson, lessonName,file,date,notes,time,subject1);
+            res = await newLessonToServer(props.teacher,numLesson, lessonName,file,date,notes,time,props.subject);
+
             console.log(res);
             alert("lesson send to server👍👍👍")
         
@@ -71,7 +72,9 @@ const NewClassRoom = (props) => {
                 console.log(e.target.value)
                 setTime(e.target.value)
             }} />
-        <button className="button" onClick={() => postLesson(teacher,numLesson, lessonName,file,date,notes,time)}>  התחברות   </button>
+
+<div>{props.subject}</div>   <div>{props.teacher}</div>
+        <button className="button" onClick={() => postLesson(props.teacher,numLesson, lessonName,file,date,notes,time,props.subject)}>  התחברות   </button>
     </div>
 
     );
@@ -83,7 +86,10 @@ const NewClassRoom = (props) => {
 const mapStateToProps = (state) => {
 
     return {
+
+        teacher: state.user?.user?.firstName,
         subject: state.user?.user?.subject,
+
     };
   };
   // export default connect(mapStateToProps, {})(Login);

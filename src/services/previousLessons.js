@@ -1,5 +1,6 @@
-export const previousLessonToServer = (student="elisheva92121@gmail.com") => {
-    return fetch(`http://localhost:3000/s_previousLessons/${student}`)
+export const previousLessonToServer = (id) => {
+    debugger
+    return fetch(`http://localhost:3000/s_previousLessons?id=${id}`)
         .then((res) => res.json())
         .then((data) => {
             return data;

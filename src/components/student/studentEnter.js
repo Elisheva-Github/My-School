@@ -2,14 +2,19 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 import {attendanceToServer} from '../../services/attendance'
 import {connect, useDispatch} from "react-redux";
+import { previousLessonToServer } from '../../services/previousLessons';
+
 
 
 const Students = (props) => {
 
     let history = useHistory();
     
-    function previouslessonsClick() {
-      history.replace("s_previouslessons");
+    const previouslessonsClick= async()=> {
+      let res = ''; 
+      res= await previousLessonToServer(props.userId)
+      console.log("res",res)
+      history.replace("s_previouslessons",{res});
     }
     function marksClick() {
       history.replace("/s_marks");
@@ -72,6 +77,7 @@ const Students = (props) => {
 const mapStateToProps = (state) => {
   debugger
   return {
+     userId: state.user?.user?.id,
       fname: state.user?.user?.firstName,
   };
 };
