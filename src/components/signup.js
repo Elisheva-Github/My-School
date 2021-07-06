@@ -16,7 +16,7 @@ const Signup = (props) => {
     const [password, setPassword] = useState('');
     const [subject, setSubject] = useState('');
     const [teachers, setTeachers] = useState('');
-
+    const res="";
     const signup = async (subject, firstName, lastName, id, email, password) => {
         try {
 
@@ -34,10 +34,21 @@ const Signup = (props) => {
 
         try {
 
-            const res = await getAllSubjectsFromServer();
-            console.log("--------"+res);
-
+             res = await getAllSubjectsFromServer();
+            console.log("----aaa----"+res);
+         
             setTeachers(res);
+            console.log("----teachers----"+teachers);
+
+           // <div>
+    
+         
+         
+         
+         
+         
+         
+        // </div>
 
 
         }
@@ -113,8 +124,8 @@ const Signup = (props) => {
 
 
         <div>
-            <button onChange={() => { getAllSubjects() }} >
-               
+            <button onClick={() => { getAllSubjects() }} >
+              לחץ כדי לראות את כל המקצועות 
             </button>
         </div>
         <div>
@@ -125,19 +136,41 @@ const Signup = (props) => {
             }> רישום   </button>
         </div>
 
+{/* 
+        {res.filter(ls => ls.subject === props.subject).map(herLess => (
+            <li>
+             {herLess?.numLesson?.numLesson}
+                  {herLess?.lessonName?.lessonName}
+                  {herLess?.file?.file}
+                  {herLess?.date?.date}
+                  {herLess?.notes?.notes}
+                  {herLess?.time?.time}
+            </li>
+          ))} */}
+
+
+
     </div>
+
+
+
+
+
+
+
     );
 
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         fName: state.user,
-//     };
-// };
+const mapStateToProps = (state) => {
+    return {
+        subject: state.user?.user?.subject,
+    };
+};
 
 // export default Signup;
-export default Signup;
+//export default Signup;
+export default connect(mapStateToProps, {})(Signup);
 // connect(null, { saveUser })(
 
 

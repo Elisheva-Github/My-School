@@ -12,21 +12,21 @@ const Students = (props) => {
     
     const previouslessonsClick= async()=> {
       let res = ''; 
-      res= await previousLessonToServer(props.userId)
+      // res= await previousLessonToServer(props.userId)
+      res= await previousLessonToServer();
       console.log("res",res)
       history.replace("s_previouslessons",{res});
     }
+
     function marksClick() {
       history.replace("/s_marks");
     }
+
     function hwClick() {
-
-      
-
      // history.replace("/s_hw");
     }
     function scheduleClick() {
-      history.replace("/s_schedule");
+      history.replace("/s_schedule");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     }
     function testClick() {
         history.replace("/s_test");
@@ -46,15 +46,7 @@ const Students = (props) => {
         }
     }
 
-    
-
- 
-
-
-       
       
-      
-
     return (
         <div>
             <div>
