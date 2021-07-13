@@ -1,56 +1,89 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { useHistory } from "react-router-dom";
- import {viewTasksFromServer} from '../../services/viewTasks'
+// import { previousLessonToServer } from '../../services/previousLessons';
+
+import { getAllStudentsFromServer } from '../../services/getAllStudent';
 
 const Tasks = () => {
 
+
   let history = useHistory();
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
-  
-  const task = async(userName,password) => {
-     let res = '';
-     res = await viewTasksFromServer(userName, password);
-     console.log(res);
-      //שולחים לשרת את שם המשתמש והסיסמא
-      ///פניה לדאטא ביס של התלמיד
-      if(1)//תלמיד
-      history.replace("/student");
-      if(2)//מורה
-      history.replace("/teacher");
-      else
-       alert("User not found😥😥!! please sign up.")
+  const [students, setStudents] = useState('');
+
+   useEffect(async() => {
+    
+        getAllStudentsFromServer().then((data)=>{
+            console.log("datadata", data);
+             (setStudents(data))
+        
+        })
+      },[])
+       
+        // .then(data =>{debugger; (setless(data.result))})
+
+  function newMarksAndDiv() {
+    newMarks()
+    showDivNewMarks()
   }
 
+  function viewMarksAndDiv() {
+    viewMarks()
+    showDivViewMarks()
+  }
 
-  return (<div className="login">
-    <img className="logo" src={"/images/logo.png"} />
-    <img className="welcome" src={"/images/welcome.png"} />
-    <img className="Profil" src={"/images/profil.png"} />
-    <div className="group4" >
-      <div >
-        <input type="text" id="userName" name="userName"
-         placeholder=":הכנס שם משתמש" className="name" 
-         value={userName} onChange={(e) =>{ 
-          console.log(e.target.value)
-          setUserName(e.target.value)}}/>
-      </div>
-    </div>
-    <div className="group3" >
-      <input type="password" id="password" name="password"
-       placeholder=":הכנס סיסמא" className="name" 
-       value={password} onChange={(e) =>{ 
-        console.log(e.target.value)
-        setPassword(e.target.value)}}/>
-    </div>
+  const newMarks= async () => {
+   // const login = async () => {
+  
+   // students = await getAllStudentsFromServer();
+      console.log("res",students);
+
+  //  }
+
+    console.log("new");
+  }
+
+  function viewMarks() {
+    console.log("view");
+  }
+
+  function showDivNewMarks() {
+
+    document.getElementById("divViewMark").style.visibility = "hidden";
+
+    document.getElementById("divNewMark").style.visibility = "visible";
+  }
+
+  function showDivViewMarks() {
+    document.getElementById("divViewMark").style.visibility = "visible";
+
+    document.getElementById("divNewMark").style.visibility = "hidden";
+  }
+
+  return (<div>
+
+    <button onClick={() => newMarksAndDiv()}>  הכנס ציון חדש   </button>
+    <button onClick={() => viewMarksAndDiv()}>  צפיה בציונים   </button>
+
+    <div id="divViewMark" style={{ visibility: "hidden" }}>הצגת ציונים
     
-    <div className="group2">
-      
-      <button className="button" onClick={() => viewTasksFromServer(userName,password)}>  התחברות   </button>
+
+        {students.map(st => (
+          <li>
+            {st?.firstName}
+          </li>
+        ))}
     </div>
+
+    <div id="divNewMark" style={{ visibility: "hidden" }}>הכנסת ציונים חדשים
+
+      </div>
   </div>
+
   );
 
 }
 
 export default Tasks;
+
+
+

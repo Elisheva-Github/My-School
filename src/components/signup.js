@@ -20,8 +20,8 @@ const Signup = (props) => {
     const signup = async (subject, firstName, lastName, id, email, password) => {
         try {
 
-            const res = await signupToServer(subject, firstName, lastName, id, email, password);
-            console.log(res);
+            const ress = await signupToServer(subject, firstName, lastName, id, email, password);
+            console.log(ress);
             alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
             history.replace("/");
         }
@@ -42,11 +42,6 @@ const Signup = (props) => {
 
            // <div>
     
-         
-         
-         
-         
-         
          
         // </div>
 
@@ -126,6 +121,21 @@ const Signup = (props) => {
         <div>
             <button onClick={() => { getAllSubjects() }} >
               לחץ כדי לראות את כל המקצועות 
+           {/* <div>
+                {res?.filter(ls => ls.subject === props.subject).map(herLess => (
+                    <li>
+                    {herLess?.numLesson?.numLesson}
+                        {herLess?.lessonName?.lessonName}
+                        {herLess?.file?.file}
+                        {herLess?.date?.date}
+                        {herLess?.notes?.notes}
+                        {herLess?.time?.time}
+                    </li>
+                ))}
+           </div>
+            */}
+           
+           
             </button>
         </div>
         <div>
@@ -136,28 +146,7 @@ const Signup = (props) => {
             }> רישום   </button>
         </div>
 
-{/* 
-        {res.filter(ls => ls.subject === props.subject).map(herLess => (
-            <li>
-             {herLess?.numLesson?.numLesson}
-                  {herLess?.lessonName?.lessonName}
-                  {herLess?.file?.file}
-                  {herLess?.date?.date}
-                  {herLess?.notes?.notes}
-                  {herLess?.time?.time}
-            </li>
-          ))} */}
-
-
-
     </div>
-
-
-
-
-
-
-
     );
 
 }

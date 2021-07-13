@@ -10,8 +10,8 @@ import '../style/login.css';
   const [password, setPassword] = useState('');
 
   const login = async (userName, password) => {
-    let res = '';
-    res = await loginToServer(userName, password);
+    
+    const res = await loginToServer(userName, password);
     console.log("res11111111", res);
         
     if (res && res.kind) {

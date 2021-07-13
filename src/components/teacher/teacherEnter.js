@@ -29,7 +29,8 @@ console.log(history.location.state);
      <img className="hw" src={"/images/hw.png"} />
      <img className="plessons" src={"/images/plessons.png"} /> */}
     <button className="previouslessons" onClick={viewAttendanceClick} >  שיעורים קודמים   </button>
-    <button className="test" onClick={viewTasksClick}> צפייה במבחנים  </button>
+    <button className="test" onClick={viewTasksClick}>  גליון ציונים  </button>
+    <button className="hw" onClick={viewTestsClick}> תרגילים שהוגשו   </button>
     <button className="hw" onClick={viewTestsClick}> תרגילים שהוגשו   </button>
     <button className="attendance" onClick={newClassClick}>יצירת שיעור חדש</button>
   </div>

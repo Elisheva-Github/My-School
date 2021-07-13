@@ -13,11 +13,12 @@ const Admin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [subject, setSubject] = useState('');
+    const [arrStudent, setArrStudent] = useState([]);
 
     const signupTeacher = async (subject,firstName, lastName, id, email, password) => {
         try {
 
-            const res = await signupTeacherToServer(subject,firstName, lastName, id, email, password);
+            const res = await signupTeacherToServer(subject,firstName, lastName, id, email, password,arrStudent);
             console.log(res);
             alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
             history.replace("/");
@@ -103,8 +104,6 @@ return (<div>
             dispatch({ type: "save_teacher", payload:{ subject, firstName, lastName, id, email, password }})
         }
             }> רישום   </button>
-      
-
     </div>
 </div>
 )
