@@ -1,11 +1,20 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 import '../../style/teacher/teacherEnter.css';
-import {connect, useDispatch} from "react-redux";
+import { connect, useDispatch } from "react-redux";
 
 const Teachers = (props) => {
   let history = useHistory();
-console.log(history.location.state);
+  console.log(history.location.state);
+
+  const previouslessonsClick = async () => {
+    // let res = '';
+    // // res= await previousLessonToServer(props.userId)
+    // res = await previousLessonToServer();
+    // console.log("res", res)
+    // history.replace("previousLessons", { res });
+  }
+
   function viewAttendanceClick() {
     history.replace("/attendance");
   }
@@ -16,7 +25,7 @@ console.log(history.location.state);
     history.replace("/tests");
   }
   function newClassClick() {
-    history.replace("/newClassRoom",history.location.state);
+    history.replace("/newClassRoom", history.location.state);
   }
 
   return (<div>
@@ -28,11 +37,11 @@ console.log(history.location.state);
     {/* <img className="test" src={"/images/test.png"} />
      <img className="hw" src={"/images/hw.png"} />
      <img className="plessons" src={"/images/plessons.png"} /> */}
-    <button className="previouslessons" onClick={viewAttendanceClick} >  שיעורים קודמים   </button>
+    <button className="previouslessons" onClick={previouslessonsClick} >  שיעורים קודמים   </button>
     <button className="test" onClick={viewTasksClick}>  גליון ציונים  </button>
     <button className="hw" onClick={viewTestsClick}> תרגילים שהוגשו   </button>
-    <button className="hw" onClick={viewTestsClick}> תרגילים שהוגשו   </button>
-    <button className="attendance" onClick={newClassClick}>יצירת שיעור חדש</button>
+    <button className="button" onClick={newClassClick}>יצירת שיעור חדש</button>
+    <button className="attendance" onClick={viewAttendanceClick}>צפיה בנוכחות</button>
   </div>
 
   );
@@ -41,8 +50,8 @@ console.log(history.location.state);
 const mapStateToProps = (state) => {
   debugger
   return {
-      fname: state.user?.user?.firstName,
-      subject: state.user?.user?.subject,
+    fname: state.user?.user?.firstName,
+    subject: state.user?.user?.subject,
   };
 };
 // export default connect(mapStateToProps, {})(Login);

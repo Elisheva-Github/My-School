@@ -13,12 +13,12 @@ const Admin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [subject, setSubject] = useState('');
-    const [arrStudent, setArrStudent] = useState([]);
+    const [arrMarks, setArrMarks] = useState([]);
 
-    const signupTeacher = async (subject,firstName, lastName, id, email, password) => {
+    const signupTeacher = async (subject,firstName, lastName, id, email, password )=> {
         try {
 
-            const res = await signupTeacherToServer(subject,firstName, lastName, id, email, password,arrStudent);
+            const res = await signupTeacherToServer(subject,firstName, lastName, id, email, password,arrMarks);
             console.log(res);
             alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
             history.replace("/");
@@ -101,7 +101,7 @@ return (<div>
     <div> 
         <button className="signup" onClick={() => {
             signupTeacher(subject,firstName, lastName, id, email, password)
-            dispatch({ type: "save_teacher", payload:{ subject, firstName, lastName, id, email, password }})
+            dispatch({ type: "save_teacher", payload:{ subject, firstName, lastName, id, email, password ,arrMarks}})
         }
             }> רישום   </button>
     </div>

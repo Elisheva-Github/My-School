@@ -15,8 +15,8 @@ const Signup = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [subject, setSubject] = useState('');
-    const [teachers, setTeachers] = useState('');
-    const res="";
+    const [lessons, setLessons] = useState('');
+    let res="";
     const signup = async (subject, firstName, lastName, id, email, password) => {
         try {
 
@@ -31,14 +31,12 @@ const Signup = (props) => {
     }
 
     const getAllSubjects = async () => {
-
         try {
 
              res = await getAllSubjectsFromServer();
-            console.log("----aaa----"+res);
+            console.log("----aaa----", res);
          
-            setTeachers(res);
-            console.log("----teachers----"+teachers);
+            setLessons(res);
 
            // <div>
     
@@ -48,10 +46,10 @@ const Signup = (props) => {
 
         }
         catch (error) {
-            alert("הרישום נכשל😒");
+            console.log("error", error);
+            alert(" נכשל😒");
         }
     }
-
 
 
     return (<div className="login">
@@ -117,23 +115,18 @@ const Signup = (props) => {
                 }} />
         </div>
 
+        
+
 
         <div>
             <button onClick={() => { getAllSubjects() }} >
               לחץ כדי לראות את כל המקצועות 
-           {/* <div>
-                {res?.filter(ls => ls.subject === props.subject).map(herLess => (
-                    <li>
-                    {herLess?.numLesson?.numLesson}
-                        {herLess?.lessonName?.lessonName}
-                        {herLess?.file?.file}
-                        {herLess?.date?.date}
-                        {herLess?.notes?.notes}
-                        {herLess?.time?.time}
-                    </li>
+           {lessons && <div>
+                {lessons.map(lesson => (
+                    <button onClick={()=>{setSubject(lesson)}}>{lesson}  </button>
                 ))}
-           </div>
-            */}
+           </div>}
+           
            
            
             </button>
