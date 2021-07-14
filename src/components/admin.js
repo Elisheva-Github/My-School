@@ -14,14 +14,16 @@ const Admin = () => {
     const [password, setPassword] = useState('');
     const [subject, setSubject] = useState('');
     const [arrMarks, setArrMarks] = useState([]);
+    const [arrAttendance, setarrAttendance] = useState([]);
+
 
     const signupTeacher = async (subject,firstName, lastName, id, email, password )=> {
         try {
 
-            const res = await signupTeacherToServer(subject,firstName, lastName, id, email, password,arrMarks);
+            const res = await signupTeacherToServer(subject,firstName, lastName, id, email, password,arrMarks,arrAttendance);
             console.log(res);
             alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
-            history.replace("/");
+            history.push("/");
         }
         catch (error) {
             alert("הרישום מורה נכשל😒");

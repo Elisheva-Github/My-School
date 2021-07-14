@@ -70,11 +70,6 @@ console.log("less",{lesss})
             {herLess?.time?.time}
        </li>
     ))}
-    
-    
-    
-    
-    
     </div>
     )
 }

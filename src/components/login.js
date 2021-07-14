@@ -16,7 +16,7 @@ import '../style/login.css';
         
     if (res && res.kind) {
       // history.replace(`/teacher`,{userName});
-      history.replace(`/${res.kind}`);
+      history.push(`/${res.kind}`);
       dispatch({ type: "save_user", payload:res.result})
 
     }
@@ -25,11 +25,11 @@ import '../style/login.css';
     }
   }
   const forgotPassword = () => {
-    history.replace("/forgotPassword");
+    history.push("/forgotPassword");
   }
 
   const goToSignup = () => {
-    history.replace("/signup");
+    history.push("/signup");
   }
 
   return (<div className="login">

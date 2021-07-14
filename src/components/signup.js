@@ -17,13 +17,14 @@ const Signup = (props) => {
     const [subject, setSubject] = useState('');
     const [lessons, setLessons] = useState('');
     let res="";
+    
     const signup = async (subject, firstName, lastName, id, email, password) => {
         try {
 
             const ress = await signupToServer(subject, firstName, lastName, id, email, password);
             console.log(ress);
             alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
-            history.replace("/");
+            history.push("/");
         }
         catch (error) {
             alert("הרישום נכשל😒");
@@ -34,14 +35,14 @@ const Signup = (props) => {
         try {
 
              res = await getAllSubjectsFromServer();
-            console.log("----aaa----", res);
-         
-            setLessons(res);
+                    console.log("----aaa----", res);
+                
+                    setLessons(res);
 
-           // <div>
-    
-         
-        // </div>
+                // <div>
+            
+                
+                // </div>
 
 
         }

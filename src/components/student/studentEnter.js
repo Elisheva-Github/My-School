@@ -15,31 +15,31 @@ const Students = (props) => {
       // res= await previousLessonToServer(props.userId)
       res= await previousLessonToServer();
       console.log("res",res)
-      history.replace("s_previouslessons",{res});
+      history.push("s_previouslessons",{res});
     }
 
     function marksClick() {
-      history.replace("/s_marks");
+      history.push("/s_marks");
     }
 
     function hwClick() {
      // history.replace("/s_hw");
     }
     function scheduleClick() {
-      history.replace("/s_schedule");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+      history.push("/s_schedule");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     }
     function testClick() {
-        history.replace("/s_test");
+        history.push("/s_test");
       }
-      
-      const enterLessonClick = async (firstName) => {
-        let date= new Date();
+    
+      const enterLessonClick = async () => {
+        let d= new Date();
         try {
 
-            const res = await attendanceToServer(firstName,date );
+            const res = await attendanceToServer(d,props.userId,props.sub);
             console.log(res);
             alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
-            history.replace("/zoom");
+            history.push("/zoom");
         }
         catch (error) {
             alert("הרישום נכשל😒");
@@ -57,12 +57,9 @@ const Students = (props) => {
             <button className="hw" onClick={hwClick}> תרגילים שהוגשו   </button>
             <button className="schedule" onClick={scheduleClick}>  מערכת שעות   </button>
             <button className="test" onClick={testClick}>  מבחנים  </button>
+            <button   onClick={enterLessonClick}>  כניסה לשיעור  </button>
             <h1>fname: {props.fname}</h1>
 
-            
-            {/* <button className="button" onClick={()=>enterLessonClick(firstName)}>  כניסה לשיעור  </button> */}
-
-           
         </div>
     );
 }
@@ -71,9 +68,10 @@ const mapStateToProps = (state) => {
   return {
      userId: state.user?.user?.id,
       fname: state.user?.user?.firstName,
+      sub: state.user?.user?.subject,
   };
 };
 // export default connect(mapStateToProps, {})(Login);
 export default connect(mapStateToProps, {})(Students);
-
+                          
 // export default Students;

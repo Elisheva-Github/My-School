@@ -1,4 +1,4 @@
-export const signupTeacherToServer=(subject,firstName, lastName, id, email, password,arrMarks) => {
+export const signupTeacherToServer=(subject,firstName, lastName, id, email, password,arrMarks,arrAttendance) => {
     fetch('http://localhost:3000/signupTeacher', {
       method: 'POST',
       headers: {
@@ -12,7 +12,8 @@ export const signupTeacherToServer=(subject,firstName, lastName, id, email, pass
         id,
         email,
         password,
-        arrMarks
+        arrMarks,
+        arrAttendance
       })
     });
     }

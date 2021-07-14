@@ -2,30 +2,31 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 import '../../style/teacher/teacherEnter.css';
 import { connect, useDispatch } from "react-redux";
+import { previousLessonToServer } from '../../services/previousLessons';
 
 const Teachers = (props) => {
   let history = useHistory();
   console.log(history.location.state);
 
   const previouslessonsClick = async () => {
-    // let res = '';
-    // // res= await previousLessonToServer(props.userId)
-    // res = await previousLessonToServer();
-    // console.log("res", res)
-    // history.replace("previousLessons", { res });
+    let res = '';
+    // res= await previousLessonToServer(props.userId)
+    res = await previousLessonToServer();
+    console.log("res", res)
+    history.push("previousLessons", { res });
   }
 
   function viewAttendanceClick() {
-    history.replace("/attendance");
+    history.push("/attendance");
   }
   function viewTasksClick() {
-    history.replace("/tasks");
+    history.push("/tasks");
   }
   function viewTestsClick() {
-    history.replace("/tests");
+    history.push("/tests");
   }
   function newClassClick() {
-    history.replace("/newClassRoom", history.location.state);
+    history.push("/newClassRoom", history.location.state);
   }
 
   return (<div>

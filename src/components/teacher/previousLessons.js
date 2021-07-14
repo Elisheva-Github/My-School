@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
-import { previousLessonToServer } from '../../services/previousLessons';
 import {connect, useDispatch} from "react-redux";
 
 const PreviousLessons = (props) => {
