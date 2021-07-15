@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import '../../style/teacher/teacherEnter.css';
 import { connect, useDispatch } from "react-redux";
 import { previousLessonToServer } from '../../services/previousLessons';
+import Header from '../header';
 
 const Teachers = (props) => {
   let history = useHistory();
@@ -30,6 +31,7 @@ const Teachers = (props) => {
   }
 
   return (<div>
+     <Header />
     <div>{props.subject}</div>
     <div>{props.fname}</div>
     <img className="teachetImg" src={"/images/teacherBack.png"} />

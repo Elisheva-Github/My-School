@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
  import {viewTasksFromServer} from '../../services/viewTasks'
+ import HeaderS from '../headerS';
+
 
 const Tasks = () => {
 
@@ -24,6 +26,7 @@ const Tasks = () => {
 
 
   return (<div className="login">
+      <HeaderS/>
     <img className="logo" src={"/images/logo.png"} />
     <img className="welcome" src={"/images/welcome.png"} />
     <img className="Profil" src={"/images/profil.png"} />

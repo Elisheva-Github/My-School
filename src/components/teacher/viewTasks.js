@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 // import { previousLessonToServer } from '../../services/previousLessons';
-
+import Header from '../header';
 import { getAllStudentsFromServer } from '../../services/getAllStudent';
 import {connect, useDispatch} from "react-redux";
 import { postMarkToServer } from '../../services/postMark';
@@ -65,7 +65,7 @@ let teacherId=props.id;
   console.log("res", students);
 
   return (<div>
-
+ <Header />
     <button onClick={() => newMarksAndDiv()}>  הכנס ציון חדש   </button>
     <button onClick={() => viewMarksAndDiv()}>  צפיה בציונים   </button>
 

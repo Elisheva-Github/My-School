@@ -1,0 +1,29 @@
+
+
+.bg-img {
+    height: 100vh;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.home-bg {
+    height: 3600px;
+}
+
+.menu {
+    background-color: transparent;
+    direction: rtl;
+    padding-right: 60px;
+}
+
+.menu-btn {
+    border: none;
+    background-color: transparent;
+    color: #1c2c53;
+    font-size: 18px;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 30px;
+}

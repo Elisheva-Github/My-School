@@ -3,6 +3,7 @@ import '../../style/teacher/newClassRoom.css';
 import {newLessonToServer} from '../../services/newClassRoom';
 import { useHistory } from 'react-router-dom';
 import {connect, useDispatch} from "react-redux";
+import Header from '../header';
 
 const NewClassRoom = (props) => {
   //  const dispatch=useDispatch();
@@ -27,6 +28,8 @@ const NewClassRoom = (props) => {
     }
     useEffect(()=>setTeacher(history.location.state),[])
     return (<div>
+
+    <Header />
         <img className="classRoomImg" src={"/images/newClassRoom.PNG"} />
         {/* <select className="test" value={1,2,3} > מספר שיעור   </select> */}
         <br />

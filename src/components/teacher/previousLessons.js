@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import {connect, useDispatch} from "react-redux";
+import Header from '../header';
 
 const PreviousLessons = (props) => {
   let history = useHistory();
@@ -58,7 +59,7 @@ console.log("less",{lesss})
 
 
     <div>
-    
+     <Header />
        {res.filter(ls => ls.subject === props.subject).map(herLess => (
       <li>
        {herLess?.numLesson?.numLesson}
