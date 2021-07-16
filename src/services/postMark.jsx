@@ -1,6 +1,3 @@
-
-
-
 export const postMarkToServer=(teacherId,marks,title) => {
     fetch('http://localhost:3000/postMark', {
       method: 'POST',

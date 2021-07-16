@@ -54,11 +54,13 @@ const Tasks = (props) => {
   }
 
  
+
   const postMark = async (id, mark, title) => {
-let teacherId=props.id;
+  debugger
+    let teacherId=props.id;
     let marks = [id, mark];
-    let data = await postMarkToServer(teacherId,marks, title);
-    console.log("date", data)
+    let data = await postMarkToServer(teacherId, marks, title);
+    console.log("data", data)
 
   }
 
@@ -95,7 +97,7 @@ let teacherId=props.id;
                   setMark(e.target.value)
                 }} />
 
-              <button onClick={postMark(st._id, mark, title)}>
+              <button onClick={()=>postMark(st._id, mark, title)}>
                 עדכון ציון
               </button>
             </li>
