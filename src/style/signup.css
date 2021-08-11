@@ -1,124 +1,137 @@
 .Rectangle{
-    position: absolute;
-    width: 58.25rem;
-    height: 28.75rem;
-    left: 30.875rem;
-    top: 26.75rem;
-    background: #EEF8FD;
-    border-radius: 4.375rem;
-    }
-    /* Profil*/
-    .Profil{
-    position: absolute;
-    position: absolute;
-        height: 120px;
-        left: 900px;
-        width: 120px;
-        top: 360px;
-        z-index: 1;
-    
-    }
-    
-    /*
-    position: absolute;
-        height: 120rem;
-        width: 120rem;
-        left: 900rem;
-        tpo: 360px;
-        z-index: 1;
-    */
-    /* Group 7 */
-    .logo{
-    position: absolute;
-    width: 219px;
-    height: 85px;
-    left: 848px;
-    top: 192px;
-    }
-    
-    /* login */
-    
-    .login{
-        /*     /* width: 95rem;
-    height: 55rem;*/
     position: relative;
-    width: 1920px;
-    height: 1080px;
-    background: #FFFFFF;
-    }
-
-        .button{
-            position: absolute;
-            width: 191px;
-            height: 60px;
-            left: 864px;
-            top: 761px;
-            position: absolute;
-            
-            background: #00C694;
-            border-radius: 42px;
-            position: absolute;
-            left: 19.37%;
-            right: 18.85%;
-            top: 28.33%;
-            bottom: 26.67%;
-            font-family: Ploni ML v2 AAA;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 21px;
-            line-height: 31px;
-            text-align: center;
-            color: #EEF8FD;
-            }
-    /* !םיאבה םיכורב */
-    .welcome{
-        position: absolute;
-        left: 880px;
-        top: 305px;
-        width: 150px;
-        height: 25px;
-    }
-    
-    
-
-.firstName{
-position: absolute;
-width: 612px;
-height: 67px;
-left: 497px;
-top: 403px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; 
+     align-content: stretch;
+    align-items: stretch; 
+     justify-content:normal; 
+    margin-top: -4%;
+    background: #EEF8FD;
+    width: 30%;
+    margin-left: 30%;
+    /* border-radius:30%; */
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-end-end-radius: 10%;
+    border-bottom-left-radius: 10%;
+    padding: 5%;
 }
 
-.lastName{
-    position: absolute;
-    width: 612px;
-    height: 67px;
-    left: 497px;
-    top: 486px;
+.pic{
+    position: relative;
+    display: flex;
+    margin-top: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 20%;
+    height: 20%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+
 }
 
-.id{
-    position: absolute;
-    width: 612px;
-    height: 67px;
-    left: 497px;
-    top: 569px;
-    
-    
+.profile{
+
+  
+    position: relative;
+    display: flex;
+    margin-top: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6%;
+    height: 6%;
+    z-index: 2;
 }
 
-.email{
-   position: absolute;
-width: 612px;
-height: 60px;
-left: 497px;
-top: 652px;
+.input_sign{
+    
+    position: relative;
+    display: flex;
+    margin-top:7%;
+    /* padding:0%; */
+    /* align-content: space-around; */
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 30%; */
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    border-end-end-radius: 25%;
+    border-bottom-left-radius: 25%;
 }
-.password{
-    position: absolute;
-width: 612px;
-height: 60px;
-left: 497px;
-top: 735px;
+
+input{
+    /* border-radius: 30%; */
+    border: none;
+    font-size: 112%;
+    text-align: center;
+    padding:3%;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    border-end-end-radius: 25%;
+    border-bottom-left-radius: 25%;
+}
+
+button{
+    
+    /* border-radius: 30%; */
+    border: none;
+    font-size: 90%;
+    text-align: center;
+    margin-top:3%;
+    padding:2%;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    border-end-end-radius: 25%;
+    border-bottom-left-radius: 25%;
+}
+.btn-s{
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: space-around;
+    align-items: stretch;
+    padding: 2%;
+    margin-top: 3%;
+    align-content: space-around;
+    align-items: center;
+    width:80%;
+    height: 50%;
+    margin-left: 7%;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    border-end-end-radius: 25%;
+    border-bottom-left-radius: 25%;
+    
+
+}
+
+.btn-sign{
+    padding-top: 15%;
+    padding-bottom:15%;
+    padding-left:25%;
+    padding-right:25%;
+    font-size: 112%;
+    margin-top: 40%;
+    background: #00C694 ;
+   color: #fff;
+   /* font-family: */
+}
+
+.btn-shwo{
+
+    padding-top: 5%;
+    padding-bottom:5%;
+    padding-left:15%;
+    padding-right:15%;
+    font-size: 100%;
+    margin-top: 15%;
+    width:150%;
+    margin-left: -25%;
+    background: #EEF8FD;
 
 }

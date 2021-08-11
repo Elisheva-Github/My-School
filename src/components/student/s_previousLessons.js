@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 import { previousLessonToServer } from '../../services/previousLessons';
 import {connect, useDispatch} from "react-redux";
 import HeaderS from '../headerS';
+import Avatar from '@material-ui/core/Avatar';
+import '../../style/student/s_previousLessons.css';
+
 
 const PreviousLessons = (props) => {
   let history = useHistory();
@@ -60,7 +63,10 @@ console.log("less",{lesss})
 
 
     <div>
-      <HeaderS/>
+       <h1>
+        <Avatar>{props.fname}</Avatar>
+      </h1>
+      {/* <HeaderS/>
     
        {res.filter(ls => ls.subject === props.subject).map(herLess => (
       <li>
@@ -72,6 +78,44 @@ console.log("less",{lesss})
             {herLess?.time?.time}
        </li>
     ))}
+ */}
+
+
+<div className="Table_lessons">
+
+<table>
+  <tr>
+    <td class="td1">שם המורה</td>
+    <td  class="td2">מס' שיעור</td>
+    <td  class="td3">נושא</td>
+    <td class="td4">חומר לשיעור</td>
+    <td class="td5">תאריך</td>
+    <td class="td6">הערות</td>
+
+  </tr>
+  
+
+ {res.filter(ls => ls.subject === props.subject).map(herLess => (
+  <tr>
+    <td class="td1">   {herLess?.numLesson?.numLesson}</td>
+         <td class="td2">    {herLess?.lessonName?.lessonName}</td>
+          <td class="td3">  {herLess?.file?.file}</td>
+          <td class="td4">   {herLess?.date?.date}</td>
+           <td class="td5"> {herLess?.notes?.notes}</td>
+           <td class="td6"> {herLess?.time?.time}</td>
+
+      </tr> 
+ ))}
+ 
+</table>
+
+</div>
+
+
+
+
+
+
     </div>
     )
 }

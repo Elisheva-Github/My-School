@@ -5,6 +5,7 @@ import Header from '../header';
 import { getAllStudentsFromServer } from '../../services/getAllStudent';
 import {connect, useDispatch} from "react-redux";
 import { postMarkToServer } from '../../services/postMark';
+import Avatar from '@material-ui/core/Avatar';
 
 const Tasks = (props) => {
 
@@ -67,6 +68,9 @@ const Tasks = (props) => {
   console.log("res", students);
 
   return (<div>
+     <h1>
+            <Avatar>{props.fname}</Avatar>
+        </h1>
  <Header />
     <button onClick={() => newMarksAndDiv()}>  הכנס ציון חדש   </button>
     <button onClick={() => viewMarksAndDiv()}>  צפיה בציונים   </button>
@@ -130,6 +134,7 @@ const mapStateToProps = (state) => {
   debugger
   return {
     id: state.user?.user?._id,
+    fname: state.user?.user?.firstName,
   };
 };
 export default connect(mapStateToProps, {})(Tasks);

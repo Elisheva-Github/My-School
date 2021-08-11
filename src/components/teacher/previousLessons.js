@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import {connect, useDispatch} from "react-redux";
 import Header from '../header';
+import Avatar from '@material-ui/core/Avatar';
 
 const PreviousLessons = (props) => {
   let history = useHistory();
@@ -59,6 +60,9 @@ console.log("less",{lesss})
 
 
     <div>
+       <h1>
+            <Avatar>{props.fname}</Avatar>
+        </h1>
      <Header />
        {res.filter(ls => ls.subject === props.subject).map(herLess => (
       <li>

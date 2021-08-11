@@ -49,7 +49,6 @@ import { useHistory } from "react-router-dom";
 import {attendanceToServer} from '../services/attendance'
 import {connect, useDispatch} from "react-redux";
 import { previousLessonToServer } from '../services/previousLessons';
-import '../style/homePage.css';
 
 
 const HeaderS = (props) => {

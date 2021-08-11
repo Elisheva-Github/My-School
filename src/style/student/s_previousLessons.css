@@ -1,0 +1,82 @@
+.Table_lessons{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0%;
+    background: #EEF8FD;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5%;
+}
+
+
+td {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #F2F2F2;
+    margin-top: -1%;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    border-end-end-radius: 25%;
+    border-bottom-left-radius: 25%;
+    font-size: 112%;
+    text-align: center;
+    padding:3%;
+}
+
+
+
+th {
+    font-weight: 600;
+}
+
+tr {
+    /* padding-bottom: 10px; */
+    background-color: #F2F2F2;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
+    color: #1c2c53;
+    text-align: center;
+    font-family: inherit;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+.td1 {
+    /* width: 150px; */
+}
+
+.td2 {
+    /* width: 100px; */
+}
+
+.td3 {
+    /* width: 200px; */
+}
+
+.td4 {
+    /* width: 200px; */
+}
+
+.td5 {
+    /* width: 250px; */
+}
+
+.td6 {
+    /* width: 150px; */
+}

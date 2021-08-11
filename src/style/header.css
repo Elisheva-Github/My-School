@@ -1,0 +1,120 @@
+
+
+.bg-img {
+    height: 100vh;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.home-bg {
+    height: 3600px;
+}
+
+.menu {
+    /* background-color: transparent; */
+    /* direction: rtl; */
+    /* padding-right: 60px; */
+   
+    /* position: relative; */
+    /* width: 200px; */
+    /* height: 657px; */
+    /* left: 1242px; */
+    /* top: 0px; */
+    /* background: #EEF8FD; */
+    /* border-radius: 35px 0px 0px 35px; */
+
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    padding-right: 8%;
+    position: relative;
+    width: 10%;
+    height: 500%;
+    margin-left: 82%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    background: #EEF8FD;
+    border-radius: 20% 0% 0% 20%;
+    font-size: 10%;
+}
+
+.menu-logo{
+    width: 100%;
+    margin-right: -50%;
+    margin-top: 30%;
+    border: none;
+    background-color: transparent;
+    color: #1c2c53;
+    /* font-size: 18px; */
+    font-family: inherit;
+    cursor: pointer;
+     /* padding: 30px; */
+}
+
+.menu-btn {
+    /* border: none; */
+     /* background-color: transparent; */
+     /* color: #1c2c53;  */
+    /* font-size: 40px; */
+    /* font-family: inherit;  */
+    /* cursor: pointer; */
+    /* padding: 40px; */
+    position: relative;
+    display: flex;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    color: #1c2c53;
+    width: 200%;
+    margin-top: 15%;
+    margin-left: 0%;
+    height: 200%;
+    font-size: 1150%;
+    /* font-family: inherit; */
+    /* cursor: pointer;*/
+    padding: 24%; 
+    margin-right: -50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.menu-icon{
+    border: none;
+    position: relative;
+    left: 200%;
+    right: 0%;
+    width: 12%;
+    bottom: 73.41%;   
+    top: 8%;
+}
+
+.menu-icon2{
+    /* border: none; */
+    position: relative;
+    /* left: 220%;
+    right: 0%; */
+    width: 12%;
+    bottom: 73.41%;   
+    top: 22%;
+}
+.menu-icon3{
+    /* border: none; */
+    position: relative;
+    /* left: 220%;
+    right: 0%; */
+    width: 12%;
+    bottom: 73.41%;   
+    top: 35%;
+}
+.menu-icon4{
+    border: none;
+    position: relative;
+    left: 220%;
+    right: 0%;
+    width: 12%;
+    bottom: 73.41%;   
+    top: 47%;
+}
+

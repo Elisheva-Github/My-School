@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { signupTeacherToServer } from '../services/signupTeacher';
 import { connect, useDispatch } from "react-redux";
-import '../style/signup.css';
+import '../style/admin.css';
+import Avatar from '@material-ui/core/Avatar';
 
 const Admin = () => {
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     let history = useHistory();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -17,10 +18,10 @@ const Admin = () => {
     const [arrAttendance, setarrAttendance] = useState([]);
 
 
-    const signupTeacher = async (subject,firstName, lastName, id, email, password )=> {
+    const signupTeacher = async (subject, firstName, lastName, id, email, password) => {
         try {
 
-            const res = await signupTeacherToServer(subject,firstName, lastName, id, email, password,arrMarks,arrAttendance);
+            const res = await signupTeacherToServer(subject, firstName, lastName, id, email, password, arrMarks, arrAttendance);
             console.log(res);
             alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
             history.push("/");
@@ -31,84 +32,84 @@ const Admin = () => {
     }
 
 
-return (<div>
-  <div className="firstName" >
-        <div >
-            <input type="text" id="firstName" name="firstName"
-                placeholder=":הכנס שם פרטי" className="name"
-                value={firstName} onChange={(e) => {
-                    console.log(e.target.value)
-                    setFirstName(e.target.value)
-                }} />
+    return (<div>
+        {/* <h1>
+            <Avatar>{props.fname}</Avatar>
+        </h1> */}
+        <img className="pic" src={"/images/sign.png"} />
+        <img className="profile" src={"/images/profil.png"} />
+        <div className="admin-rectangle" >
+            <div className="input_admin">
+                <input type="text" id="firstName" name="firstName"
+                    placeholder=":הכנס שם פרטי"
+                    value={firstName} onChange={(e) => {
+                        console.log(e.target.value)
+                        setFirstName(e.target.value)
+                    }} />
+
+            </div>
+
+            {/* lastname */}
+            <div className="input_admin">
+                <input type="text" id="lastname" name="lastname"
+                    placeholder=":הכנס שם משפחה"
+                    value={lastName} onChange={(e) => {
+                        console.log(e.target.value)
+                        setLastName(e.target.value)
+                    }} />
+            </div>
+
+
+            {/* id */}
+            <div className="input_admin">
+                <input type="text" id="id" name="id"
+                    placeholder=":הכנס תז"
+                    value={id} onChange={(e) => {
+                        console.log(e.target.value)
+                        setId(e.target.value)
+                    }} />
+
+            </div>
+
+            {/* email */}
+            <div className="input_admin">
+                <input type="text" id="email" name="email"
+                    placeholder=": הכנס דואר אלקטרוני"
+                    value={email} onChange={(e) => {
+                        console.log(e.target.value)
+                        setEmail(e.target.value)
+                    }} />
+
+            </div>
+
+            {/* password */}
+            <div className="input_admin">
+                <input type="password" id="password" name="password"
+                    placeholder=":הכנס סיסמא"
+                    value={password} onChange={(e) => {
+                        console.log(e.target.value)
+                        setPassword(e.target.value)
+                    }} />
+            </div>
+            <div className="input_admin">
+                <input type="text" name="subject"
+                    placeholder=":הכנס מקצוע שהמורה מלמד"
+                    value={subject} onChange={(e) => {
+                        console.log(e.target.value)
+                        setSubject(e.target.value)
+                    }} />
+            </div>
+
+            <div>
+                <button className="signup btn-sign-teacher" onClick={() => {
+                    signupTeacher(subject, firstName, lastName, id, email, password)
+                    dispatch({ type: "save_teacher", payload: { subject, firstName, lastName, id, email, password, arrMarks } })
+                }
+                }> רישום   </button>
+            </div>
         </div>
     </div>
-
-    {/* lastname */}
-    <div className="lastName" >
-        <div >
-            <input type="text" id="lastname" name="lastname"
-                placeholder=":הכנס שם משפחה" className="name"
-                value={lastName} onChange={(e) => {
-                    console.log(e.target.value)
-                    setLastName(e.target.value)
-                }} />
-        </div>
-    </div>
-
-    {/* id */}
-    <div className="id" >
-        <div >
-            <input type="text" id="id" name="id"
-                placeholder=":הכנס תז" className="name"
-                value={id} onChange={(e) => {
-                    console.log(e.target.value)
-                    setId(e.target.value)
-                }} />
-        </div>
-    </div>
-
-    {/* email */}
-    <div className="email" >
-        <div >
-            <input type="text" id="email" name="email"
-                placeholder=": הכנס דואר אלקטרוני" className="name"
-                value={email} onChange={(e) => {
-                    console.log(e.target.value)
-                    setEmail(e.target.value)
-                }} />
-        </div>
-    </div>
-
-    {/* password */}
-    <div className="password" >
-        <input type="password" id="password" name="password"
-            placeholder=":הכנס סיסמא" className="name"
-            value={password} onChange={(e) => {
-                console.log(e.target.value)
-                setPassword(e.target.value)
-            }} />
-    </div>
-    <div  >
-        <div >
-            <input type="text"  name="subject"
-                placeholder=":הכנס מקצוע שהמורה מלמד" 
-                value={subject} onChange={(e) => {
-                    console.log(e.target.value)
-                    setSubject(e.target.value)
-                }} />
-        </div>
-    </div>
-
-    
-    <div> 
-        <button className="signup" onClick={() => {
-            signupTeacher(subject,firstName, lastName, id, email, password)
-            dispatch({ type: "save_teacher", payload:{ subject, firstName, lastName, id, email, password ,arrMarks}})
-        }
-            }> רישום   </button>
-    </div>
-</div>
-)
+    )
 }
 
 export default Admin;

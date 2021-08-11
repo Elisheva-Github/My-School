@@ -4,6 +4,7 @@ import '../../style/teacher/teacherEnter.css';
 import { connect, useDispatch } from "react-redux";
 import { previousLessonToServer } from '../../services/previousLessons';
 import Header from '../header';
+import Avatar from '@material-ui/core/Avatar';
 
 const Teachers = (props) => {
   let history = useHistory();
@@ -31,6 +32,9 @@ const Teachers = (props) => {
   }
 
   return (<div>
+     <h1>
+            <Avatar>{props.fname}</Avatar>
+        </h1>
      <Header />
     <div>{props.subject}</div>
     <div>{props.fname}</div>

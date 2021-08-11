@@ -2,6 +2,7 @@
 // import { useHistory } from "react-router-dom";
 // import { viewTestsFromServer } from '../services/viewTests';
 // // import '../style/login.css';
+// import Avatar from '@material-ui/core/Avatar';
 
 
 // const ViewTests = () => {

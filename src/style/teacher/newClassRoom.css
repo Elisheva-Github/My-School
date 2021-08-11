@@ -22,3 +22,89 @@
     top: 22rem;
     left: 700px
     }
+
+    .all{ 
+        /* position: relative;
+        /* display:flex; */
+        /* margin-top: 0%;
+        width: 500px;
+        height: 500px;
+        left: 216px;
+        background: #EEF8FD;
+        border-radius: 70px; */
+        position: absolute;
+        width: 28.25rem;
+        height: 30.75rem;
+        left: 30.875rem;
+        top: 6rem;
+        background: #EEF8FD;
+        border-radius: 4.375rem
+        }
+
+        /* .menu-btn {
+            border: none;
+            background-color: transparent;
+             color: #1c2c53; 
+             width: 65%;
+            font-size: 15px;
+            font-family: inherit; 
+            cursor: pointer;
+            padding: 10px;
+        }         */
+.aa{
+    text-align: center;
+    bottom:90%;
+    font-size: 120%;
+}
+        .a{
+            
+            border: none;
+            text-align: right;
+            color: #000000;
+            position: absolute;
+            left: 20%;
+            right: 0%;
+            width: 300px;
+            height: 26px;
+            border-radius: 30px;
+            font-family: inherit; 
+            cursor: pointer;
+            padding: 10px
+        }
+
+        .b{
+            bottom: 80%;
+        }
+        .c{
+            bottom: 68%;
+        }
+        .d{
+            bottom: 56%;
+        }
+        .e{
+            bottom: 44%;
+        }
+        .f{
+            bottom: 32%;
+        }
+        .g{
+            bottom: 20%;
+        }
+
+        .buttn{
+          border: none;
+            width: 50%;
+            top: 85%;
+            height: 8%;
+            left: 25%;
+            background: #00C694;
+            border-radius: 42px;
+            position: absolute;
+            font-family: Ploni ML v2 AAA;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 21px;
+            line-height: 31px;
+            text-align: center;
+            color: #EEF8FD;
+            }

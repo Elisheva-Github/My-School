@@ -1,0 +1,74 @@
+.admin-rectangle{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; 
+     align-content: stretch;
+    align-items: stretch; 
+     justify-content:normal; 
+    margin-top: -4%;
+    background: #EEF8FD;
+    width: 30%;
+    margin-left: 30%;
+    /* border-radius:30%; */
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-end-end-radius: 10%;
+    border-bottom-left-radius: 10%;
+    padding: 5%;
+}
+
+
+.profile{
+
+  
+    position: relative;
+    display: flex;
+    margin-top: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6%;
+    height: 6%;
+    z-index: 2;
+}
+
+
+.input_admin{
+   
+    
+        position: relative;
+        display: flex;
+        margin-top:7%;
+        /* padding:0%; */
+        /* align-content: space-around; */
+        align-items: center;
+        justify-content: center;
+        /* border-radius: 30%; */
+        border-top-left-radius: 5%;
+        border-top-right-radius: 5%;
+        border-end-end-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+    
+    input{
+        /* border-radius: 30%; */
+        border: none;
+        font-size: 112%;
+        text-align: center;
+        padding:3%;
+        border-top-left-radius: 5%;
+        border-top-right-radius: 5%;
+        border-end-end-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+    
+
+.btn-sign-teacher{
+    margin-left: 35%;
+    margin-top: 10%;
+    font-size: 112%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background: #00C694 ;
+    color: white;
+}
