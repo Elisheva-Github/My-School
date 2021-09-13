@@ -1,0 +1,26 @@
+.menu-btn2 {
+    /* border: none; */
+     /* background-color: transparent; */
+     /* color: #1c2c53;  */
+    /* font-size: 40px; */
+    /* font-family: inherit;  */
+    /* cursor: pointer; */
+    /* padding: 40px; */
+    position: relative;
+    display: flex;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    color: #1c2c53;
+    width: 200%;
+    margin-top: 15%;
+    margin-left: 0%;
+    height: 200%;
+    font-size: 1150%;
+    /* font-family: inherit; */
+    /* cursor: pointer;*/
+    padding: 15%; 
+    margin-right: -50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* 0548523484  */
+}

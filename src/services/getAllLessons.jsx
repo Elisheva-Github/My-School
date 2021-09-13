@@ -1,8 +1,6 @@
 
-export const getAllStudentsFromServer = () => {
-    return fetch(`http://localhost:3000/allStudents`, {
-      credentials: "include"
-    })
+export const getAllLessonsFromServer = () => {
+    return fetch(`http://localhost:3000/allLessons`)
     .then((res) => res.json())
     .then((data) =>{ 
       return data;

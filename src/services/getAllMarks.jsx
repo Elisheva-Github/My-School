@@ -1,8 +1,8 @@
-export const viewTestsFromServer = () => {
-    return fetch(`http://localhost:3000/viewTest`)
+
+export const getAllMarksFromServer = (subject) => {
+    return fetch(`http://localhost:3000/allMarks?subject=${subject}`)
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             return data;
         }
         )
@@ -10,3 +10,4 @@ export const viewTestsFromServer = () => {
             console.log("error", err);
         });
 }
+

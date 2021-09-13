@@ -1,8 +1,7 @@
-export const viewTestsFromServer = () => {
-    return fetch(`http://localhost:3000/viewTest`)
+export const getAllHwFromServer = (subject) => {
+    return fetch(`http://localhost:3000/allHw?subject=${subject}`)
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             return data;
         }
         )

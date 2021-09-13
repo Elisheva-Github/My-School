@@ -104,11 +104,14 @@ import { newLessonToServer } from '../../services/newClassRoom';
 import { useHistory } from 'react-router-dom';
 import { connect, useDispatch } from "react-redux";
 import Header from '../header';
+import Avatar from '@material-ui/core/Avatar';
+import UseUploadFile from '../fileReader';
 import '../../style/teacher/newClassRoom.css'
 //  ' ../style/teacher/newClassRoom.css';
 
 const NewClassRoom = (props) => {
     const dispatch = useDispatch();
+    const { fileData, onfileChange } = UseUploadFile()
     const [numLesson, setNumLesson] = useState('');
     const [lessonName, setLessonName] = useState('');
     const [file, setFile] = useState('');
@@ -117,11 +120,12 @@ const NewClassRoom = (props) => {
     const [time, setTime] = useState('');
     const [teacher, setTeacher] = useState('');
 
-        const history = useHistory()
-    const postLesson = async (teacher, numLesson, lessonName, file, date, notes, time) => {
+    const history = useHistory()
+    const postLesson = async (numLesson, lessonName, file, date, notes, time) => {
 
         let res = '';
-        res = await newLessonToServer(props.teacher, numLesson, lessonName, file, date, notes, time, props.subject);
+
+        res = await newLessonToServer({ teacher: props.teacher, numLesson, lessonName, file: fileData, date, notes, time, subject: props.subject });
 
         console.log(res);
         alert("lesson send to server👍👍👍")
@@ -131,31 +135,33 @@ const NewClassRoom = (props) => {
 
     return (
         <>
+            <Avatar>{props.fname && props.fname[0]}</Avatar>
             <Header />
             <div class="all">
                 <div className="aa "> יצירת שעור חדש</div>
-                 <input type="number" min="0" max="24" placeholder=":הכנס מס שעור" className="a b"
+                <input type="number" min="0" max="24" placeholder=":הכנס מס שעור" className="a b"
                     value={numLesson}
                     onChange={(e) => {
                         // console.log(e.target.value)
                         setNumLesson(e.target.value)
                     }} />
-              
+
                 <input type="text" className="a c" placeholder=":נושא"
                     value={lessonName} onChange={(e) => {
                         console.log(e.target.value)
                         setLessonName(e.target.value)
                     }} />
-               
 
-                <input type="file" className="a d" 
+
+                {/* <input type="file" className="a d" 
                     value={file} onChange={(e) => {
                         // console.log(e.target.value)
                         setFile(e.target.value)
                     }}
-                /> 
-               
-                <input type="date" className="a e" 
+                />  */}
+                <input type="file" onChange={onfileChange} className="a d"></input>
+
+                <input type="date" className="a e"
                     value={date} onChange={(e) => {
                         console.log(e.target.value)
                         setDate(e.target.value)
@@ -168,12 +174,12 @@ const NewClassRoom = (props) => {
                     }} />
 
 
-                <input type="time" className="a g" 
+                <input type="time" className="a g"
                     value={time} onChange={(e) => {
                         console.log(e.target.value)
                         setTime(e.target.value)
                     }} />
-                      <button className="buttn" onClick={() => postLesson(props.teacher, numLesson, lessonName, file, date, notes, time, props.subject)}>  התחברות   </button>
+                <button className="buttn" onClick={() => postLesson(numLesson, lessonName, file, date, notes, time,)}>  התחברות   </button>
 
             </div>
         </>)
@@ -186,6 +192,7 @@ const mapStateToProps = (state) => {
 
         teacher: state.user?.user?.firstName,
         subject: state.user?.user?.subject,
+        fname: state.user?.user?.firstName,
 
     };
 };

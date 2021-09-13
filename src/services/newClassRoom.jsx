@@ -9,7 +9,7 @@
 //     });
 // }
 
-export const newLessonToServer=(teacher,numLesson, lessonName,file,date,notes,time,subject) => {
+export const newLessonToServer=(data) => {
 fetch('http://localhost:3000/postLesson/', {
   method: 'POST',
   headers: {
@@ -17,14 +17,7 @@ fetch('http://localhost:3000/postLesson/', {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    teacher:{teacher},
-    numLesson: {numLesson},
-    lessonName: {lessonName},
-    file: {file},
-    date: {date},
-    notes: {notes},
-    time: {time},
-    subject
+  ...data
   })
 });
 }

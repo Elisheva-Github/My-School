@@ -7,9 +7,13 @@ import ViewAttendance from './components/teacher/viewAttendance';
 import Schedule from './components/teacher/schedule';
 import ViewTasks from './components/teacher/viewTasks';
 import ViewTests from './components/teacher/viewTests';
+import Hw from './components/teacher/hw';
 import PreviousLessons from './components/teacher/previousLessons';
+import NewTest from './components/teacher/newTest';
+import NewHw from './components/teacher/newHw';
 import ForgotPassword from './components/forgotPassword';
 import Signup from './components/signup';
+
 import S_previousLessons from './components/student/s_previousLessons';
 import S_schedule from './components/student/s_schedule';
 import S_viewTests from './components/student/s_viewTests';
@@ -54,6 +58,19 @@ function App() {
         <Route path="/tests">
           <ViewTests />
         </Route>
+        <Route path="/newTest">
+          <NewTest />
+        </Route>
+        <Route path="/newHw">
+          <NewHw />
+        </Route>
+     
+
+        <Route path="/hw">
+          <Hw />
+        </Route>
+
+       
         <Route path="/forgotPassword">
           <ForgotPassword />
         </Route>
@@ -70,10 +87,13 @@ function App() {
         <Route path="/s_schedule">
           <S_schedule />
         </Route>
-        <Route path="/viewHw">
+        <Route path="/s_test">
+          <S_viewTests />
+        </Route>
+        <Route path="/s_hw">
           <ViewHw />
         </Route>
-        <Route path="/viewMarks">
+        <Route path="/s_marks">
           <ViewMarks />
         </Route>
         <Route path="/admin">

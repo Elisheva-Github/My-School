@@ -27,6 +27,9 @@ const Header = (props) => {
   function viewTestsClick() {
     history.push("/tests");
   }
+  function viewHwClick() {
+    history.push("/hw");
+  }
   function newClassClick() {
     history.push("/newClassRoom", history.location.state);
   }
@@ -44,7 +47,8 @@ const Header = (props) => {
     <img className="menu-btn " src={"/images/‏‏logo.png"} /> */}
       <button className="menu-btn " onClick={previouslessonsClick}  > שיעורים קודמים </button>
       <button className="menu-btn" onClick={viewTasksClick}>  גליון ציונים  </button>
-      <button className="menu-btn" onClick={viewTestsClick}> תרגילים שהוגשו   </button>
+      <button className="menu-btn" onClick={viewTestsClick}> מבחנים   </button>
+      <button className="menu-btn" onClick={viewHwClick}> תרגילים שהוגשו   </button>
       <button className="menu-btn" onClick={newClassClick}>יצירת שיעור חדש </button>
       <button className="menu-btn" onClick={viewAttendanceClick}>צפיה בנוכחות </button>
       <div></div>

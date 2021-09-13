@@ -35,8 +35,8 @@ const Login = (props) => {
 
   return (<div className="">
     <h1>
-  <Avatar>{props.fname}</Avatar>
-  </h1>
+      <Avatar>{props.fname}</Avatar>
+    </h1>
     {/* <h1>fname: {props.fname}</h1> */}
     <img className="mySchool" src={"/images/mySchool.png"} />
     <img className="pprofile" src={"/images/profil.png"} />
@@ -44,7 +44,7 @@ const Login = (props) => {
 
       <div className="iinput_sign ip">
         <input type="text" id="userName" name="userName"
-          placeholder=":הכנס שם משתמש" 
+          placeholder=":הכנס שם משתמש"
           value={userName} onChange={(e) => {
             console.log(e.target.value)
             setUserName(e.target.value)
@@ -59,16 +59,16 @@ const Login = (props) => {
             setPassword(e.target.value)
           }} />
       </div>
-    
 
-<div  >
-      <button  className="btn-login" onClick={() => login(userName, password)}>  התחברות   </button>
+
+      <div  >
+        <button className="btn-login" onClick={() => login(userName, password)}>  התחברות   </button>
       </div>
 
-            
-   <div>
-      <button  className=" btn-goToSignup iforgat" onClick={() => forgotPassword()}>  ?שכחת סיסמא   </button>
-      </div>  
+
+      <div>
+        <button className=" btn-goToSignup iforgat" onClick={() => forgotPassword()}>  ?שכחת סיסמא   </button>
+      </div>
 
 
       {/* <button className="btn-login" onClick={() => login(userName, password)}>  התחברות   </button> */}
@@ -77,9 +77,9 @@ const Login = (props) => {
       {/* <button className="forgotPassword" onClick={() => forgotPassword()}>  שכחת סיסמא?   </button> */}
 
 
-<div >
-      <button  className="btn-goToSignup" onClick={() => goToSignup()}>  אין לך חשבון? הירשם   </button>
-</div>
+      <div >
+        <button className="btn-goToSignup" onClick={() => goToSignup()}>  אין לך חשבון? הירשם   </button>
+      </div>
     </div>
 
   </div>
@@ -89,7 +89,7 @@ const Login = (props) => {
 
 
 const mapStateToProps = (state) => {
-  debugger
+
   return {
     fname: state.user?.user?.firstName,
   };

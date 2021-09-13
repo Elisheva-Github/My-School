@@ -11,14 +11,17 @@ const Teachers = (props) => {
   console.log(history.location.state);
 
   const previouslessonsClick = async () => {
-    let res = '';
-    // res= await previousLessonToServer(props.userId)
-    res = await previousLessonToServer();
-    console.log("res", res)
-    history.push("previousLessons", { res });
+
+    // let res = '';
+    // 
+    // // res= await previousLessonToServer(props.userId)
+    // res = await previousLessonToServer(props.subject);
+    // console.log("resres", res)
+    history.push("/previousLessons");
   }
 
   function viewAttendanceClick() {
+
     history.push("/attendance");
   }
   function viewTasksClick() {
@@ -32,10 +35,9 @@ const Teachers = (props) => {
   }
 
   return (<div>
-     <h1>
-            <Avatar>{props.fname}</Avatar>
-        </h1>
-     <Header />
+
+    <Avatar>{props.fname && props.fname[0]}</Avatar>
+    <Header />
     <div>{props.subject}</div>
     <div>{props.fname}</div>
     <img className="teachetImg" src={"/images/teacherBack.png"} />
@@ -44,7 +46,7 @@ const Teachers = (props) => {
     {/* <img className="test" src={"/images/test.png"} />
      <img className="hw" src={"/images/hw.png"} />
      <img className="plessons" src={"/images/plessons.png"} /> */}
-    <button className="previouslessons" onClick={previouslessonsClick} >  שיעורים קודמים   </button>
+    <button className="previouslessons" onClick={previouslessonsClick} >ff  שיעורים קודמים   </button>
     <button className="test" onClick={viewTasksClick}>  גליון ציונים  </button>
     <button className="hw" onClick={viewTestsClick}> תרגילים שהוגשו   </button>
     <button className="button" onClick={newClassClick}>יצירת שיעור חדש</button>
@@ -55,10 +57,10 @@ const Teachers = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  debugger
+
   return {
     fname: state.user?.user?.firstName,
-    subject: state.user?.user?.subject,
+    subject: state.user?.user?.subject || 'none',
   };
 };
 // export default connect(mapStateToProps, {})(Login);

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { attendanceToServer } from '../../services/attendance'
 import { connect, useDispatch } from "react-redux";
 import { previousLessonToServer } from '../../services/previousLessons';
+import HeaderS from '../headerS';
 
 import Avatar from '@material-ui/core/Avatar';
 
@@ -18,6 +19,7 @@ const Students = (props) => {
     let res = '';
     // res= await previousLessonToServer(props.userId)
     res = await previousLessonToServer();
+
     console.log("res", res)
     history.push("s_previouslessons", { res });
   }
@@ -48,16 +50,13 @@ const Students = (props) => {
     catch (error) {
       alert("הרישום נכשל😒");
     }
-  
+
   }
 
   return (
     <div>
-      <h1>
-        
-        <Avatar>{props.fname}</Avatar>
-        {/* <Avatar>{aa}</Avatar> */}
-      </h1>
+      <Avatar>{props.fname && props.fname[0]}</Avatar>
+      <HeaderS />
       <div>
         <img className="logo" src={"/images/logo.png"} />
       </div>
@@ -67,7 +66,6 @@ const Students = (props) => {
       <button className="schedule" onClick={scheduleClick}>  מערכת שעות   </button>
       <button className="test" onClick={testClick}>  מבחנים  </button>
       <button onClick={enterLessonClick}>  כניסה לשיעור  </button>
-      {/* <h1>fname: {props.fname}</h1> */}
 
 
 
@@ -75,7 +73,7 @@ const Students = (props) => {
   );
 }
 const mapStateToProps = (state) => {
-  
+
   return {
     userId: state.user?.user?.id,
     fname: state.user?.user?.firstName,
