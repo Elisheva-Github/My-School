@@ -29,19 +29,24 @@ const Hw = (props) => {
 
         {<table>
             <tr>
-                <td class="td1">תלמיד</td>
-                <td class="td2">ציון </td>
+                <td class="td1">שיעור</td>
+                {/* <td class="td1"> ציון תלמיד וקובץ</td> */}
+                <tr>
+                            <td >קובץ </td>
+                            <td class="td1">תלמיד </td>
+                            <td class="td2"> ציון</td>
+                        </tr>
             </tr>
 
             {hw?.map(m => (
                 <tr>
                     <td>  {m.lessonName}</td>
-                    <td >
-                        {m['arrHw']?.map(n =>
-                            <tr>
-                                <td class="td1"> {n?.studentId}</td>
-                                <td class="td2"> {n?.mark}</td>
-                            </tr>)}</td>
+                    {m['arrHw']?.map(n =>
+                        <tr>
+                            <td > <a href={n.file} download="h.w of student">⬇</a></td>
+                            <td class="td1"> {n?.studentId}</td>
+                            <td class="td2"> {n?.mark}</td>
+                        </tr>)}
                 </tr>
             ))}
         </table>}

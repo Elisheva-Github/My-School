@@ -1,26 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { useHistory } from "react-router-dom";
 
 
-const Zoom=()=>
-{
+const Zoom = () => {
+    return (
+        <div>
 
 
-
-
-
-
-
-
-    return(<div>
-
-
-
-    </div>
-
+        </div>
     )
-
 }
-
-
 export default Zoom;

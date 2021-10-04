@@ -25,44 +25,53 @@ const Tasks = (props) => {
   const [ts, setTs] = useState([]);
 
   useEffect(async () => {
-    getAllStudentsFromServer().then((data) => {
+    getAllStudentsFromServer(props.subject).then((data) => {
       (setStudents(data))
+      console.log("getAllStudentsFromServer", students);
     })
   }, [])
 
   useEffect(async () => {
     viewTestsFromServer(props.subject).then((data) => {
-      setTests(data)
+      setTests(data);
+      console.log("viewTestsFromServer", tests);
+    })
+  }, [])
+  useEffect(async () => {
+    getAllLessonsFromServer(props.subject).then((data) => {
+      setLessons(data);
+      console.log("getAllLessonsFromServer", lessons);
     })
   }, [])
 
 
-  // useEffect(async () => {
-  //   
-  //   getAllMarksFromServer(props.subject).then((data) => {
-  //     (setMarks(data))
-  //   })
-  // }, [])
 
-  //  useEffect(async () => {
-  //   getAllLessonsFromServer().then((data) => {
-  //     (setLessons(data))
-  //   })
-  // }, [])
+    // useEffect(async () => {
+    //   
+    //   getAllMarksFromServer(props.subject).then((data) => {
+    //     (setMarks(data))
+    //   })
+    // }, [])
 
-  // ----------------------------------------------------------------
+    //  useEffect(async () => {
+    //   getAllLessonsFromServer().then((data) => {
+    //     (setLessons(data))
+    //   })
+    // }, [])
 
-  const getAllLessons = async () => {
-    try {
-      res = await getAllLessonsFromServer();
-      console.log("----aaa----", res);
-      setLessons(res);
-    }
-    catch (error) {
-      console.log("error", error);
-      alert(" נכשל😒");
-    }
-  }
+    // ----------------------------------------------------------------
+
+    // const getAllLessons = async () => {
+    //   try {
+    //     res = await getAllLessonsFromServer();
+    //     console.log("----getAllLessons----", res);
+    //     setLessons(res);
+    //   }
+    //   catch (error) {
+    //     console.log("error", error);
+    //     alert(" נכשל😒");
+    //   }
+    // }
     // ----------------------------------------------------------------
 
     // .then(data =>{; (setless(data.result))})
@@ -88,13 +97,11 @@ const Tasks = (props) => {
     setShow(true);
   }
 
-
-
   function viewMarksAndDiv(subject) {
 
     setShow(false);
 
-    getAllMarks(subject);
+    // getAllMarks(subject);
   }
 
   const newMarks = async () => {
@@ -118,7 +125,7 @@ const Tasks = (props) => {
   //   console.log("data", data)
   // }
 
-  console.log("res", students);
+  console.log("students", students);
 
   return (<div>
     <Avatar>{props.fname && props.fname[0]}</Avatar>
@@ -136,33 +143,33 @@ const Tasks = (props) => {
             setTitle(e.target.value)
           }} /> */}
 
-        <button onClick={() => { getAllLessons() }} >
+        {/* <button onClick={() => { getAllLessons() }} >
           👉 לחץ כדי לבחור שיעור
-        </button>
+        </button> */}
         {/* <div> {getAllLessons() }</div> */}
         {lessons && <div>
           <select onChange={(e) => setLessHw({ name: e.target.value, type: 'lesson' })} >
             {/* <select onChange={(e) => setLessHw(e.target.value)} > */}
             {lessons.map(lesson => (
-              <option value={lesson._id} >{lesson.lessonName}  </option>
-
+              <option class = "td2" value={lesson._id} >{lesson.lessonName}  </option>
             ))}
           </select>
         </div>}
 
-        {tests && <div>
-          <select onChange={(e) => setLessHw({ name: e.target.value, type: 'test' })} >
-            {/* <select onChange={(e) => setLessHw(e.target.value)} > */}
-            {tests.map(tst => (
-              <option value={tst._id} >{tst.nameSubject}  </option>
-
-            ))}
-          </select>
-        </div>}
+        {
+          tests && <div>
+            <select onChange={(e) => setLessHw({ name: e.target.value, type: 'test' })} >
+              {/* <select onChange={(e) => setLessHw(e.target.value)} > */}
+              {tests.map(tst => (
+                <option value={tst._id} >{tst.nameSubject}  </option>
+              ))}
+            </select>
+          </div>
+        }
 
 
         {/* דיב של הצגת ציונים */}
-        <div id="divViewMark" > :להכניס ציון חדש
+        <div id="divViewMark" > :הכנס ציון 
           {students && students.map(st => (
             // <MarkToUpdate student={st} lesson={lesson} />
             <MarkToUpdate student={st} lesson={lessHw}></MarkToUpdate>
@@ -173,12 +180,13 @@ const Tasks = (props) => {
         : <div  >
           {<table>
             <tr>
-              <td class="td1">תלמיד</td>
-              <td class="td2">ציון </td>
+              <td class="td1">נושא</td>
+              <td class="td2"> ציון______ תלמיד</td>
+             
             </tr>
 
 
-            {marks?.map(m => (
+            {/* {marks?.map(m => (
               <tr>
                            <td>  {m.subject}</td> 
                               <td >
@@ -188,7 +196,30 @@ const Tasks = (props) => {
                     <td class="td4"> {n?.mark}</td>
                 </tr>)}</td>
                 </tr>
+            ))} */}
+            {/* {lessons?.map(l => (
+              <tr>
+                <td>  {l.lessonName}</td>
+                <td >
+                  {l['arrHw']?.map(n =>
+                    <tr>
+                      <td class="td1"> {n?.studentId}</td>
+                      <td class="td2"> {n?.mark}</td>
+                    </tr>)}</td>
+              </tr>
+            ))} */}
+            {tests?.map(l => (
+              <tr>
+                <td>  {l.nameSubject}</td>
+                <td >
+                  {l['marks']?.map(n =>
+                    <tr>
+                      <td class="td2"> {n?.studentId}</td>
+                      <td class="td2"> {n?.mark}</td>
+                    </tr>)}</td>
+              </tr>
             ))}
+
           </table>}
 
 

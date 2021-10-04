@@ -127,6 +127,7 @@ const Signup = (props) => {
 
 
             <div className="btn-s">
+                
                 <div >
                     <button className="button btn-shwo" onClick={() => { getAllSubjects() }} >
                         👉  לחץ כדי לבחור מקצוע

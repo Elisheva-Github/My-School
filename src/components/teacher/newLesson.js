@@ -8,7 +8,6 @@ import Header from '../header';
 import Avatar from '@material-ui/core/Avatar';
 import UseUploadFile from '../fileReader';
 import '../../style/teacher/newClassRoom.css'
-//  ' ../style/teacher/newClassRoom.css';
 
 const NewLesson = (props) => {
     const dispatch = useDispatch();

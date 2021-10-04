@@ -1,31 +1,72 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { useHistory } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import Avatar from '@material-ui/core/Avatar';
 import HeaderS from '../headerS';
 import UseUploadFile from '../fileReader';
+import { getAllLessonsFromServer } from '../../services/getAllLessons';
+import { postMyHwFileToServer } from '../../services/postMark';
 
 
 const ViewHw = (props) => {
 
-  const { fileData, onfileChange } = UseUploadFile()
+  const { file, onfileChange } = UseUploadFile()
+  const [lessons, setLessons] = useState([]);
 
+  const postMyHwFile=async (lessonId,studentId, file)=>{
+    let res = '';
+    res = await postMyHwFileToServer(lessonId,studentId,file);
+    console.log("postMyHwFileToServer",res);
+  }
+
+  useEffect(async () => {
+    getAllLessonsFromServer(props.subject).then((data) => {
+      setLessons(data);
+      console.log("***getAllLessonsFromServer", data);
+    })
+  }, [])
 
   return (<div>
     <Avatar>{props.fname && props.fname[0]}</Avatar>
     <HeaderS />
 
-    <input type="file" onChange={onfileChange}></input>
 
+
+
+    {<table>
+      <tr>
+        <td>שם שעור </td>
+        <td>תאריך</td>
+        <td>להוריד ש.ב</td>
+        <td>להעלות ש.ב</td>
+      </tr>
+      {lessons?.map(l => (
+        <tr>
+          <td>  {l.lessonName}</td>
+          <td>  {l.date}</td>
+          <td >
+            {l['hwQuestions']?.map(n =>
+              <tr>
+                {/* <td > <a href={n.file} download="file">⬇</a> <iframe src={n.file} frameborder="0"></iframe></td> */}
+                <td > <a href={n.file} download="h.w">⬇</a></td>
+              </tr>)}
+              </td>
+            <td><input type="file"onChange={onfileChange} placeholder="⬆" ></input> </td>
+            <button onClick={postMyHwFile(l._id,props.id, file)}> שלח</button>
+        </tr>
+      ))}
+
+    </table>}
   </div>
   )
 }
 
 const mapStateToProps = (state) => {
-
   return {
     fname: state.user?.user?.firstName,
+    subject: state.user?.user?.subject,
+    id: state.user?.user?._id,
   };
 };
 export default connect(mapStateToProps, {})(ViewHw);

@@ -15,7 +15,23 @@ const MarkToUpdate = (props) => {
     }
 
     return (<div>
-        student:  {props.student.firstName}
+        <table>
+            <tr>
+                <td class="td1"> student:  {props.student.firstName}</td>
+                <td>   <input type="number" min="60" max="100"
+                    value={mark}
+                    onChange={(e) => {
+                        console.log(e.target.value)
+                        setMark(e.target.value)
+                    }}
+                    placeholder='הכנס ציון'
+                /></td>
+                <td class="td2"> <button onClick={() => postMark(props.student._id, mark, props.lesson)}>
+                    עדכון ציון
+                </button></td>
+            </tr>
+        </table>
+        {/* student:  {props.student.firstName}
         <input type="number" min="60" max="100"
             value={mark}
             onChange={(e) => {
@@ -25,9 +41,9 @@ const MarkToUpdate = (props) => {
             placeholder='הכנס ציון'
         />
 
-        <button onClick={() => postMark(props.student._id, mark, props.lesson)}>
+        <button  onClick={() => postMark(props.student._id, mark, props.lesson)}>
             עדכון ציון
-        </button>
+        </button> */}
     </div>
 
     )

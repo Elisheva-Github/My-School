@@ -1,4 +1,4 @@
-// export const postTestToServer = (nameSubject, date, file, title) => {
+// export const postTestToServer = (teacher, nameSubject, date, file, comment,subject) => {
 //     fetch('http://localhost:3000/postTest', {
 //         method: 'POST',
 //         headers: {
@@ -6,14 +6,12 @@
 //             'Content-Type': 'application/json'
 //         },
 //         body: JSON.stringify({
-//             nameSubject,
-//             date,
-//             file,
-//             title
+//            teacher, nameSubject, date, file, comment,subject
 //         })
 //     });
 // } 
 
+ 
 export const postTestToServer = (data) => {
     fetch('http://localhost:3000/postTest', {
         method: 'POST',

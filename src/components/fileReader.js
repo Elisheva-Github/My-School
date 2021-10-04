@@ -17,7 +17,7 @@ const onfileChange=(e)=>{
 return {fileData,onfileChange}
 
 //     return(<div>
-// 
+
 
 // <iframe src={fileData} frameborder="0"></iframe>
 //     </div>

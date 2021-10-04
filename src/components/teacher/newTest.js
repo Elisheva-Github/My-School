@@ -20,11 +20,9 @@ const NewTest = (props) => {
 
     const history = useHistory()
     const postTest = async (nameSubject, date, file, comment) => {
-
         let res = '';
-
         res = await postTestToServer({ teacher: props.teacher, nameSubject, date, file, comment, subject: props.subject });
-
+        history.push("/tests");
         console.log(res);
         alert("test send to server👍👍👍")
 

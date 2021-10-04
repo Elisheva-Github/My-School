@@ -11,6 +11,10 @@ const PreviousLessons = (props) => {
   let history = useHistory();
   const [lesss, setless] = useState();
 
+  useEffect(() => previousLessonToServer(props.subject).then(res => setless(res)).catch(err => alert(err)), [])
+
+
+
   useEffect(() => setless(history.location.state?.res || []), [history.location]);
   console.log("less", { lesss })
   // console.log("his", history.location.state);
@@ -96,34 +100,22 @@ const PreviousLessons = (props) => {
           {lesss?.map(herLess => (
             //  {lesss.filter(ls => ls.subject === props.subject).map(herLess => (
             <tr>
-              <td class="td1">   {herLess?.numLesson}</td>
-              <td class="td2">    {herLess?.lessonName}</td>
-              <td class="td3"> <a href={herLess.file} download="file">download</a> <iframe src={herLess.file} frameborder="0"></iframe></td>
-              <td class="td4">   {herLess?.date}</td>
-              <td class="td5"> {herLess?.notes}</td>
-              <td class="td6"> {herLess?.time}</td>
+              <td class="td1">   {herLess?.teacher}</td>
+              <td class="td2">   {herLess?.numLesson}</td>
+              <td class="td3">    {herLess?.lessonName}</td>
+              <td class="td4"> <a href={herLess.file} download="file">download</a> <iframe src={herLess.file} frameborder="0"></iframe></td>
+              <td class="td5">   {herLess?.date}</td>
+              <td class="td6"> {herLess?.notes}</td>
+
 
             </tr>
           ))}
-
         </table>
-
       </div>
-
-
-
-
-
-
     </div>
   )
 }
-
-//export default PreviousLessons;
-
-
 const mapStateToProps = (state) => {
-
   return {
     // id:state.user?.user?.id,
     userId: state.user?.user?.id,

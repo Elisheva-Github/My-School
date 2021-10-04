@@ -12,24 +12,35 @@ import '../../style/teacher/newClassRoom.css'
 
 const NewHw = (props) => {
     const dispatch = useDispatch();
+    let history = useHistory();
 
+    const [numLesson, setNumLesson] = useState(0);
     const [nameSubject, setNameSubject] = useState('');
     const [date, setDate] = useState('');
     const { file, onfileChange } = UseUploadFile();
     const [comment, setComment] = useState('');
     const [question1, setQuestion1] = useState('');
     const [question2, setQuestion2] = useState('');
+    // id = history.location.state.id;
+    setNumLesson(history.location.state.id);
+    if (setNumLesson == 0)
+        <input type="number" placeholder=":הכנס מס שעור"
+            value={numLesson} onChange={(e) => {
+                console.log(e.target.value)
+                setNumLesson(e.target.value)
+            }} />
 
-    const history = useHistory();
-    const id = history.location.state.id;
-    const postHw = async (id, nameSubject, date, file, comment, question1, question2) => {
+    const postHw = async (numLesson, nameSubject, date, file, comment, question1, question2) => {
 
         let res = '';
 
-        res = await postHwToServer({ id, nameSubject, date, file, comment, question1, question2, subject: props.subject });
-
+        res = await postHwToServer({ numLesson, nameSubject, date, file, comment, question1, question2, subject: props.subject });
+        history.push("/hw");
         console.log(res);
         alert("test send to server👍👍👍")
+       
+
+
 
     }
     // useEffect(() => setTeacher(history.location.state), [])
@@ -75,7 +86,7 @@ const NewHw = (props) => {
                         setQuestion2(e.target.value)
                     }} />
 
-                <button className="buttn" onClick={() => postHw(id, nameSubject, date, file, comment, question1, question2)}>  הוספה   </button>
+                <button className="buttn" onClick={() => postHw(numLesson, nameSubject, date, file, comment, question1, question2)}>  הוספה   </button>
 
             </div>
         </>)

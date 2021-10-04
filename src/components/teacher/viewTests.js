@@ -23,7 +23,8 @@ const ViewTests = (props) => {
     // }, [])
     useEffect(async () => {
         viewTestsFromServer(props.subject).then((data) => {
-            setTests(data)
+            setTests(data);
+            console.log("viewTests", tests);
         })
     }, [])
 
@@ -33,48 +34,49 @@ const ViewTests = (props) => {
     function newTest() {
         history.push("/newTest");
     }
-    function tst(test) {
-        {
-            console.log("test: " + test)
-            // <table>
-            //     <tr>
-            //         <td class="td1">תלמידה</td>
-            //         <td class="td2">ציון </td>
-            //     </tr>
+    // function tst(test) {
+    //     {
+    //         console.log("test: " + test)
+    //         // <table>
+    //         //     <tr>
+    //         //         <td class="td1">תלמידה</td>
+    //         //         <td class="td2">ציון </td>
+    //         //     </tr>
 
 
-            //     {test?.map(st => (
-            //         <tr>
-            //             <td class="td2">   {st?.studentId}</td>
-            //             <td class="td4">   {st?.mark}</td>
-            //         </tr>
-            //     ))}
-            // </table>
+    //         //     {test?.map(st => (
+    //         //         <tr>
+    //         //             <td class="td2">   {st?.studentId}</td>
+    //         //             <td class="td4">   {st?.mark}</td>
+    //         //         </tr>
+    //         //     ))}
+    //         // </table>
 
-        }
-    }
+    //     }
+    // }
 
     return (<div>
         <Avatar>{props.fname && props.fname[0]}</Avatar>
         <Header />
 
-        <table>
-            <tr>
-                <td class="td1">נושא</td>
-                <td class="td2">תאריך </td>
-                <td class="td3">קובץ</td>
-            </tr>
-
+        {<table>
+            <thead>
+                <tr>
+                    <td class="td1">נושא</td>
+                    <td class="td2">תאריך </td>
+                    <td class="td3">קובץ</td>
+                </tr>
+            </thead>
 
             {tests?.map(test => (
                 <tr>
-                    {/* <td  class="td1">   {test?.nameSubject}</td> */}
-                    <button onClick={tst(test)}>{test?.nameSubject}</button>
+                    <td class="td1">   {test?.nameSubject}</td>
                     <td class="td2"> {test?.date}</td>
-                    <td class="td4"> {test?.file}</td>
+                    <td class="td3"> {test?.file}</td>
+                    {/* <button onClick={tst(test._id)}>הנבחנים</button> */}
                 </tr>
             ))}
-        </table>
+        </table>}
 
         {/* <input type="file" onChange={onfileChange}></input> */}
 
