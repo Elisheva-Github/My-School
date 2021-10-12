@@ -32,7 +32,18 @@ fetch('api/Values')
             {/* <script src="JavaScript.js"></script>
     <link href="StyleSheet.css" rel="stylesheet"/> */}
 
-
+            {/* List<City> l = new List<City>()
+        {
+             new City {name="Jerusalem", description="Kadosh"},
+             new City {name="Ashdod", description="Beach"},
+        };
+        
+        // GET: api/<ValuesController>
+        [HttpGet]
+        public List<City> Get()
+        {
+            return l;
+        } */}
 
 
         </div>
