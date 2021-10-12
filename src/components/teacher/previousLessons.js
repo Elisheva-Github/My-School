@@ -18,7 +18,8 @@ const PreviousLessons = (props) => {
     history.push("/newLesson");
   }
   function goToHw(id) {
-    history.push("/newHw", { id: id });
+    
+    history.push({pathname:"/newHw",state: { id: id }});
   }
 
   // useEffect(() => setless(res), []);
@@ -37,7 +38,7 @@ const PreviousLessons = (props) => {
             <td class="td3">  תאריך </td>
             <td class="td4">  הערה </td>
             <td class="td2">  שעה </td>
-        </tr>
+          </tr>
         </thead>
         {lesss.map(herLess => (
           <tr>
@@ -49,9 +50,7 @@ const PreviousLessons = (props) => {
             <td class="td2"> {herLess?.time}</td>
             {/* {  <button onClick={()=>goToHw(herLess._id)}>שעורי בית להכניס  </button>} */}
             {<button onClick={() => goToHw(herLess.numLesson)}>ש.ב להכניס  </button>}
-            <goToHw numLesson ={herLess.numLesson} >ש.ב. </goToHw>
           </tr>
-
         ))}
       </table>
     </div>

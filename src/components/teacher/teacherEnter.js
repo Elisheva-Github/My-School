@@ -38,19 +38,19 @@ const Teachers = (props) => {
 
     <Avatar>{props.fname && props.fname[0]}</Avatar>
     <Header />
-    <div>{props.subject}</div>
-    <div>{props.fname}</div>
-    <img className="teachetImg" src={"/images/teacherBack.png"} />
+    {/* <div>{props.subject}</div>
+    <div>{props.fname}</div> */}
+    {/* <img className="teachetImg" src={"/images/teacherBack.png"} />
     <img className="logo" src={"/images/logo.png"} />
-    <img className="att" src={"/images/att.png"} />
+    <img className="att" src={"/images/att.png"} /> */}
     {/* <img className="test" src={"/images/test.png"} />
      <img className="hw" src={"/images/hw.png"} />
      <img className="plessons" src={"/images/plessons.png"} /> */}
-    <button className="previouslessons" onClick={previouslessonsClick} >ff  שיעורים קודמים   </button>
+    {/* <button className="previouslessons" onClick={previouslessonsClick} >ff  שיעורים קודמים   </button>
     <button className="test" onClick={viewTasksClick}>  גליון ציונים  </button>
     <button className="hw" onClick={viewTestsClick}> תרגילים שהוגשו   </button>
     <button className="button" onClick={newClassClick}>יצירת שיעור חדש</button>
-    <button className="attendance" onClick={viewAttendanceClick}>צפיה בנוכחות</button>
+    <button className="attendance" onClick={viewAttendanceClick}>צפיה בנוכחות</button> */}
   </div>
 
   );

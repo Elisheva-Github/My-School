@@ -1,4 +1,4 @@
-export const postMarkToServer = (teacherId, marks, lessonId) => {
+export const postMarkToServer = (type, marks, lessonId) => {
   fetch('http://localhost:3000/postMark', {
     method: 'POST',
     headers: {
@@ -6,14 +6,15 @@ export const postMarkToServer = (teacherId, marks, lessonId) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      teacherId,
+      type,
       marks,
       lessonId
     })
   });
 }
 
-export const postMyHwFileToServer = (lessonId,studentId, file) => {
+export const postMyFileToServer = (type, lessonId,studentId, file) => {
+  debugger
   fetch('http://localhost:3000/postFile', {
     method: 'POST',
     headers: {
@@ -21,9 +22,26 @@ export const postMyHwFileToServer = (lessonId,studentId, file) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      type,
       lessonId,
       studentId,
       file,
     })
   });
 }
+
+
+// export const postMyTestFileToServer = (lessonId,studentId, file) => {
+//   fetch('http://localhost:3000/postFile', {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       lessonId,
+//       studentId,
+//       file,
+//     })
+//   });
+// }

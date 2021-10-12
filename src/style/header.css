@@ -13,6 +13,10 @@
 }
 
 .menu {
+    right: 0px;
+    width: 20vw;
+    height: 100vh;
+    position: absolute;
     /* background-color: transparent; */
     /* direction: rtl; */
     /* padding-right: 60px; */
@@ -29,28 +33,27 @@
     display: flex;
     flex-direction: column;
     direction: rtl;
-    padding-right: 8%;
-    position: relative;
-    width: 10%;
-    height: 500%;
-    margin-left: 82%;
+    /* padding-right: 8%; */
+    /* position: relative; */
+    /* width: 10%;
+    height: 500%; */
+    /* margin-left: 82%;
     margin-top: 0%;
-    margin-bottom: 0%;
+    margin-bottom: 0%; */
     background: #EEF8FD;
     border-radius: 20% 0% 0% 20%;
     font-size: 10%;
 }
 
 .menu-logo{
-    width: 100%;
-    margin-right: -50%;
+    width: 25vh;
+    /* margin-right: -50%;
     margin-top: 30%;
     border: none;
     background-color: transparent;
     color: #1c2c53;
-    /* font-size: 18px; */
     font-family: inherit;
-    cursor: pointer;
+    cursor: pointer; */
      /* padding: 30px; */
 }
 
@@ -62,7 +65,7 @@
     /* font-family: inherit;  */
     /* cursor: pointer; */
     /* padding: 40px; */
-    position: relative;
+    /* position: relative;
     display: flex;
     border: none;
     text-align: center;
@@ -72,14 +75,41 @@
     margin-top: 15%;
     margin-left: 0%;
     height: 200%;
-    font-size: 1150%;
+    font-size: 1150%; */
     /* font-family: inherit; */
     /* cursor: pointer;*/
-    padding: 17%; 
+    /* padding: 17%; 
     margin-right: -50%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 
+    /* /////// */
+
+    /* border: none;  */
+    /* background-color: transparent; */
+    /* color: #1c2c53; */
+    /* font-size: 40px; */
+    /* font-family: inherit; */
+    /* cursor: pointer; */
+    /* padding: 40px; */
+    /* position: relative; */
+    /* display: flex; */
+    /* border: none; */
+    text-align: center;
+    background-color: transparent;
+    color: #1c2c53;
+    /* width: 200%; */
+    margin-top: 15%;
+    margin-left: 0%;
+    /* height: 200%; */
+    font-size: 1150%;
+    /* font-family: inherit; */
+    /* cursor: pointer; */
+    padding: 14px;
+    /* margin-right: -50%; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
 .menu-icon{
     border: none;
     position: relative;

@@ -21,14 +21,12 @@ const NewHw = (props) => {
     const [comment, setComment] = useState('');
     const [question1, setQuestion1] = useState('');
     const [question2, setQuestion2] = useState('');
-    // id = history.location.state.id;
-    setNumLesson(history.location.state.id);
-    if (setNumLesson == 0)
-        <input type="number" placeholder=":הכנס מס שעור"
-            value={numLesson} onChange={(e) => {
-                console.log(e.target.value)
-                setNumLesson(e.target.value)
-            }} />
+     let a= history.location.state?.id;
+    //id = history.location.state.id;
+    console.log("aaa " + history.location.state?.id)
+    // setNumLesson("5");
+    // if (numLesson == 0)
+ 
 
     const postHw = async (numLesson, nameSubject, date, file, comment, question1, question2) => {
 
@@ -38,7 +36,7 @@ const NewHw = (props) => {
         history.push("/hw");
         console.log(res);
         alert("test send to server👍👍👍")
-       
+
 
 
 
@@ -52,13 +50,11 @@ const NewHw = (props) => {
             <div class="all">
                 <div className="aa "> יצירת ש.ב. חדש</div>
 
-
                 <input type="text" className="a b" placeholder=":נושא"
                     value={nameSubject} onChange={(e) => {
                         console.log(e.target.value)
                         setNameSubject(e.target.value)
                     }} />
-
 
                 <input type="file" className="a c" onChange={onfileChange}></input>
 
@@ -86,8 +82,15 @@ const NewHw = (props) => {
                         setQuestion2(e.target.value)
                     }} />
 
-                <button className="buttn" onClick={() => postHw(numLesson, nameSubject, date, file, comment, question1, question2)}>  הוספה   </button>
+                <button className="buttn" onClick={() =>{ postHw(history.location.state?.id?history.location.state?.id:numLesson, nameSubject, date, file, comment, question1, question2)}}>  הוספה   </button>
 
+
+                {!history.location.state?.id&&
+                    <input type="number" placeholder=":הכנס מס שעור"
+                    value={numLesson} onChange={(e) => {
+                        console.log(e.target.value)
+                        setNumLesson(e.target.value)
+                    }} />}
             </div>
         </>)
 }

@@ -13,6 +13,7 @@
 
  
 export const postTestToServer = (data) => {
+    debugger
     fetch('http://localhost:3000/postTest', {
         method: 'POST',
         headers: {

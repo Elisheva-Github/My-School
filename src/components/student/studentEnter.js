@@ -57,18 +57,7 @@ const Students = (props) => {
     <div>
       <Avatar>{props.fname && props.fname[0]}</Avatar>
       <HeaderS />
-      <div>
-        <img className="logo" src={"/images/logo.png"} />
-      </div>
-      <button className="previouslessons" onClick={previouslessonsClick} >  שיעורים קודמים   </button>
-      <button className="test" onClick={marksClick}> צפיה בציונים   </button>
-      <button className="hw" onClick={hwClick}> תרגילים שהוגשו   </button>
-      <button className="schedule" onClick={scheduleClick}>  מערכת שעות   </button>
-      <button className="test" onClick={testClick}>  מבחנים  </button>
-      <button onClick={enterLessonClick}>  כניסה לשיעור  </button>
-
-
-
+     
     </div>
   );
 }

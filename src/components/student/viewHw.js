@@ -6,7 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import HeaderS from '../headerS';
 import UseUploadFile from '../fileReader';
 import { getAllLessonsFromServer } from '../../services/getAllLessons';
-import { postMyHwFileToServer } from '../../services/postMark';
+import { postMyFileToServer } from '../../services/postMark';
 
 
 const ViewHw = (props) => {
@@ -16,7 +16,8 @@ const ViewHw = (props) => {
 
   const postMyHwFile=async (lessonId,studentId, file)=>{
     let res = '';
-    res = await postMyHwFileToServer(lessonId,studentId,file);
+    debugger
+    res = await postMyFileToServer("Lessons", lessonId,studentId,file);
     console.log("postMyHwFileToServer",res);
   }
 
@@ -53,7 +54,8 @@ const ViewHw = (props) => {
               </tr>)}
               </td>
             <td><input type="file"onChange={onfileChange} placeholder="⬆" ></input> </td>
-            <button onClick={postMyHwFile(l._id,props.id, file)}> שלח</button>
+            
+            <button onClick={() => postMyHwFile(l._id,props.id, file)}> שלח</button>
         </tr>
       ))}
 

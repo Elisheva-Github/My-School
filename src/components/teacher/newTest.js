@@ -43,9 +43,7 @@ const NewTest = (props) => {
                         setNameSubject(e.target.value)
                     }} />
 
-
                 <input type="file" className="a d" onChange={onfileChange}></input>
-
                 <input type="date" className="a e"
                     value={date} onChange={(e) => {
                         console.log(e.target.value)

@@ -5,6 +5,34 @@ import React from 'react';
 const Zoom = () => {
     return (
         <div>
+            {/* function getArr(p) {
+    //   let arr = ["משה", "דוד", "יוסף","נחמיה"];
+    let select = document.getElementById("selectCity");
+    //   let count = 0;
+    //    arr.forEach(name => {
+    let n = document.createElement("option");
+    n.textContent = p.name + " is " + p.description;
+    //   n.value = p.name +" is "+ p.description;
+    //  n.id = count;
+    //   count++;
+    select.appendChild(n);
+} */}
+            {/* 
+function get() {
+
+fetch('api/Values')
+    .then(data => {
+        return data.json();
+    })
+    .then(data => {
+        console.log(data);
+        data.forEach(d => getArr(d));
+    });
+} */}
+            {/* <script src="JavaScript.js"></script>
+    <link href="StyleSheet.css" rel="stylesheet"/> */}
+
+
 
 
         </div>

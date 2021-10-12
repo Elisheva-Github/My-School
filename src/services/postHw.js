@@ -1,4 +1,5 @@
 export const postHwToServer = (data) => {
+    debugger
     return fetch('http://localhost:3000/postHw', {
         method: 'POST',
         headers: {

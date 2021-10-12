@@ -7,10 +7,14 @@ import { useHistory } from "react-router-dom";
 import { getAllTestsFromServer } from "../../services/getAllTests"
 import { viewTestsFromServer } from '../../services/viewTests';
 import { previousLessonToServer } from '../../services/previousLessons';
+import MarkToUpdate from './markToUpdate';
 
 const ViewTests = (props) => {
 
     const [tests, setTests] = useState([]);
+    const [show, setShow] = useState(false);
+    const [oneTst, setOneTst] = useState();
+    const [oneTstLessonName, setOneTstLessonName] = useState();
 
 
     // useEffect(async () => {
@@ -34,26 +38,16 @@ const ViewTests = (props) => {
     function newTest() {
         history.push("/newTest");
     }
-    // function tst(test) {
-    //     {
-    //         console.log("test: " + test)
-    //         // <table>
-    //         //     <tr>
-    //         //         <td class="td1">תלמידה</td>
-    //         //         <td class="td2">ציון </td>
-    //         //     </tr>
 
+    //**** */
+    function tst(test, lessonName) {
+        console.log("test: " + test);
+        setShow(true);
+        setOneTst(test);
+        setOneTstLessonName(lessonName);
+    }
+    console.log("oneTst", oneTst);
 
-    //         //     {test?.map(st => (
-    //         //         <tr>
-    //         //             <td class="td2">   {st?.studentId}</td>
-    //         //             <td class="td4">   {st?.mark}</td>
-    //         //         </tr>
-    //         //     ))}
-    //         // </table>
-
-    //     }
-    // }
 
     return (<div>
         <Avatar>{props.fname && props.fname[0]}</Avatar>
@@ -70,15 +64,45 @@ const ViewTests = (props) => {
 
             {tests?.map(test => (
                 <tr>
-                    <td class="td1">   {test?.nameSubject}</td>
+                    <td class="td1"> {test?.nameSubject}</td>
                     <td class="td2"> {test?.date}</td>
                     <td class="td3"> {test?.file}</td>
-                    {/* <button onClick={tst(test._id)}>הנבחנים</button> */}
+                    <button onClick={() => tst(test.marks, test?._id)}>הנבחנים</button>
                 </tr>
             ))}
         </table>}
 
+
+
+
+        {<table>
+            <thead>
+                <tr>
+                    <td class="td1">תלמיד</td>
+                    <td class="td2">ציון </td>
+                </tr>
+            </thead>
+            {oneTst?.map(t => (
+                <>
+                    <MarkToUpdate type="Test" student={t?.studentId._id} studentName={t?.studentId.firstName} lesson={oneTstLessonName} mrk={t.mark}></MarkToUpdate>
+                    {/* <tr>
+                    <td class="td1"> {t?.studentId}</td>
+                    <td class="td2"> {t?.mark}</td>
+                </tr> */}
+                </>
+            ))}
+        </table>}
+
+
+
         {/* <input type="file" onChange={onfileChange}></input> */}
+        {/* <div>
+            {show ? <div>
+
+            </div>
+        
+        </div> */}
+
 
         <button onClick={newTest}>מבחן חדש</button>
     </div>
@@ -92,4 +116,6 @@ const mapStateToProps = (state) => {
     };
 };
 export default connect(mapStateToProps, {})(ViewTests);
+
+
 
