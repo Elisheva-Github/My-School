@@ -44,7 +44,29 @@ fetch('api/Values')
         {
             return l;
         } */}
+////////////
+  fetch("api/Values", {
+        method: "Post",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(city),//שיודע רק לקבל גיסון cs ממירים את היוזר לג'יסון כי הוא הולך ל
+    })
+        .then(response => {
+        if (response.ok) {
+            alert("!!!עלה בהצלחה");
+            return response.text();
+        }
 
+        else { response.json().then(error1 => { alert(JSON.stringify(error1.errors)); }) }
+        })
+        .then(data => {
+            console.log(data);
+        })
+///////
+  <input type="text" id="name" name="name"><br><br>
+    <label for="fname"> description:</label>
+}
 
         </div>
     )
