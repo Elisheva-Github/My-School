@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import { loginToServer } from '../services/login';
@@ -9,6 +9,17 @@ const Login = (props) => {
   const history = useHistory();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [hasError, setHasError] = useState(false);
+
+
+  useEffect(() => {
+    if (userName !== "" && password !== "")
+      setHasError(false)
+    else
+      setHasError(true)
+  }, [userName, password]);
+
+
 
   const login = async (userName, password) => {
 
@@ -62,20 +73,13 @@ const Login = (props) => {
 
 
       <div  >
-        <button className="btn-login" onClick={() => login(userName, password)}>  התחברות   </button>
+        <button className="btn-login" disabled={hasError} onClick={() => login(userName, password)}>  התחברות   </button>
       </div>
 
 
       <div>
         <button className=" btn-goToSignup iforgat" onClick={() => forgotPassword()}>  ?שכחת סיסמא   </button>
       </div>
-
-
-      {/* <button className="btn-login" onClick={() => login(userName, password)}>  התחברות   </button> */}
-
-
-      {/* <button className="forgotPassword" onClick={() => forgotPassword()}>  שכחת סיסמא?   </button> */}
-
 
       <div >
         <button className="btn-goToSignup" onClick={() => goToSignup()}>  אין לך חשבון? הירשם   </button>

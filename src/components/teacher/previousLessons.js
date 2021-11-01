@@ -18,8 +18,8 @@ const PreviousLessons = (props) => {
     history.push("/newLesson");
   }
   function goToHw(id) {
-    
-    history.push({pathname:"/newHw",state: { id: id }});
+
+    history.push({ pathname: "/newHw", state: { id: id } });
   }
 
   // useEffect(() => setless(res), []);
@@ -57,7 +57,7 @@ const PreviousLessons = (props) => {
   )
 }
 const mapStateToProps = (state) => {
-
+  
   return {
 
     userId: state.user?.user?.id,

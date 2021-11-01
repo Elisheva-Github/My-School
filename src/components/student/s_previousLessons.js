@@ -17,72 +17,12 @@ const PreviousLessons = (props) => {
 
   useEffect(() => setless(history.location.state?.res || []), [history.location]);
   console.log("less", { lesss })
-  // console.log("his", history.location.state);
-  // const viewPreviousLessonsToServer = async () => {
-  //     const res = await previousLessonToServer();
-  // }
-  //   useEffect(() => {
-  // previousLessonToServer(userid) 
-  // previousLessonToServer(student)
-  //   let res22 = ''; 
-  //  res22 =  previousLessonToServer() 
-  // console.log("lesss",dd)
-  //      console.log("res22",res)
-  // // .then(data =>{; (setless(data.result))})
-  // .then(data =>{
-
-  //     console.log(data);
-  //      (setless(data))})
-
-
-  //   }, [])
-
-
-  // 
 
   return (
-    // <div>
-    //     <div>{
-    //         lesss?.map(herLess=><div>
-    //         {herLess?.numLesson?.numLesson}
-    //         {herLess?.lessonName?.lessonName}
-    //         {herLess?.file?.file}
-    //         {herLess?.date?.date}
-    //         {herLess?.notes?.notes}
-    //         {herLess?.time?.time}
-    //         </div>)}
-    //     </div>
-    // </div>
-    //   {lesss.filter(ls => ls.subject === props.subject).map(herLess => (
-    //     <li>
-    //      {herLess?.numLesson?.numLesson}
-    //           {herLess?.lessonName?.lessonName}
-    //           {herLess?.file?.file}
-    //            {herLess?.date?.date}
-    //            {herLess?.notes?.notes}
-    //            {herLess?.time?.time}
-    //     </li>
-    //   ))}
-
 
     <div>
       <Avatar>{props.fname && props.fname[0]}</Avatar>
       <HeaderS />
-      {/* <HeaderS/>
-    
-       {res.filter(ls => ls.subject === props.subject).map(herLess => (
-      <li>
-       {herLess?.numLesson?.numLesson}
-             {herLess?.lessonName?.lessonName}
-            {herLess?.file?.file}
-             {herLess?.date?.date}
-            {herLess?.notes?.notes}
-            {herLess?.time?.time}
-       </li>
-    ))}
- */}
-
-
       <div className="Table_lessons">
 
         <table>

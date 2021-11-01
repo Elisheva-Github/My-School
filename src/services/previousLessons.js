@@ -14,7 +14,7 @@
 
 
 export const previousLessonToServer = (subject) => {
-
+    debugger
     return fetch(`http://localhost:3000/s_previousLessons/` + subject)
         .then((res) => res.json())
         .then((data) => {

@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import "../style/forgotPassword.css";
 import Avatar from '@material-ui/core/Avatar';
+import { forgetPassword } from '../services/forgetPassword';
 
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     let history = useHistory();
-    const backToLogin = () => { history.replace("/"); }
+    const update = async () => {
+        const res = await forgetPassword(email, password);
+        console.log("res11111111", res);
+        history.replace("/");
+    }
 
     return (<div className="">
         <img className="pic_forgot" src={"/images/forgot.png"} />
@@ -47,10 +52,10 @@ const ForgotPassword = () => {
                     }} />
             </div>
             <div className="btn-login_after_update">
-            <button  onClick={() => backToLogin()}> עדכן   </button>
-        </div>
-    
-          
+                <button onClick={() => update()}> עדכן   </button>
+            </div>
+
+
 
         </div>
     </div>)

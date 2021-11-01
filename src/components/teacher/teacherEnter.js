@@ -8,7 +8,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 const Teachers = (props) => {
   let history = useHistory();
-  console.log("history.location.state",history.location.state);
+  console.log("history.location.state", history.location.state);
 
   const previouslessonsClick = async () => {
 

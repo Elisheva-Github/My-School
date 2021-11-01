@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import { saveUser } from "../action";
@@ -17,19 +17,51 @@ const Signup = (props) => {
     const [password, setPassword] = useState('');
     const [subject, setSubject] = useState('');
     const [lessons, setLessons] = useState([]);
+    const [hasError, setHasError] = useState(false);
+
+    const [flagFirstName, setFlagFirstName] = useState(false);
+    const [flagId, setFlagId] = useState(false);
+    const [flagEmail, setFlagEmail] = useState(false);
+    const [flagPassword, setFlagPassword] = useState(false);
+    const [flagSubject, setFlagSubject] = useState(false);
+
+    const [PasswordMass, setPasswordMass] = useState(false);
+    const [IdMass, setIdMass] = useState(false);
+    const [emailMass, setEmailMass] = useState(false);
+
     let res = "";
 
-    const signup = async (subject, firstName, lastName, id, email, password) => {
-        try {
+    useEffect(() => {
+        if (firstName !== "" && id !== "" && email !== "" && password !== "" && subject !== ""
+            && !flagFirstName && !flagId && !flagEmail && !flagPassword && !flagSubject)
+            setHasError(false)
+        else
+            setHasError(true)
+    }, [firstName, id, email, password, subject]);
 
-            const ress = await signupToServer(subject, firstName, lastName, id, email, password);
-            console.log(ress);
-            await sendMail(email, firstName);
-            alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
-            history.push("/");
+
+
+    const signup = async (subject, firstName, lastName, id, email, password) => {
+
+        if (hasError) {
+            if (firstName === "") { setFlagFirstName(true) };
+            if (id === "") { setFlagId(true) };
+            if (email === "") { setFlagEmail(true) };
+            if (password === "") { setFlagPassword(true) };
+            if (subject === "") setFlagSubject(true);
         }
-        catch (error) {
-            alert("הרישום נכשל😒");
+        else {
+            try {
+
+                const ress = await signupToServer(subject, firstName, lastName, id, email, password);
+                console.log(ress);
+                await sendMail(email, firstName);
+                alert("ברישום בוצע בהצלחה!! ברוכים הבאים לבית סיפרנו!!!!😊😊")
+                history.push("/");
+            }
+            catch (error) {
+                alert("הרישום נכשל😒");
+            }
         }
     }
 
@@ -57,8 +89,23 @@ const Signup = (props) => {
             alert("הרישום נכשל😒");
         }
     }
-
-
+    function isNotEmail() {
+        let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return (!regEmail.test(email))
+    }
+    function onlyNumbers() {
+        let regNumber = /^[0-9]$/
+        return (!regNumber.test(id))
+    }
+    // function is_israeli_id_number(id) {
+    //     id = String(id).trim();
+    //     if (id.length > 9 || isNaN(id)) return false;
+    //     id = id.length < 9 ? ("00000000" + id).slice(-9) : id;
+    //     return Array.from(id, Number).reduce((counter, digit, i) => {
+    //         const step = digit * ((i % 2) + 1);
+    //         return counter + (step > 9 ? step - 9 : step);
+    //     }) % 10 === 0;
+    // }
     return (<div className="">
 
 
@@ -74,7 +121,11 @@ const Signup = (props) => {
                     value={firstName} onChange={(e) => {
                         console.log(e.target.value)
                         setFirstName(e.target.value)
+                        setFlagFirstName(false)
+
                     }} />
+                <div>{flagFirstName ? "שדה חובה!" : ""}</div>
+
 
             </div>
 
@@ -87,7 +138,6 @@ const Signup = (props) => {
                         console.log(e.target.value)
                         setLastName(e.target.value)
                     }} />
-
             </div>
 
             {/* id */}
@@ -98,7 +148,16 @@ const Signup = (props) => {
                     value={id} onChange={(e) => {
                         console.log(e.target.value)
                         setId(e.target.value)
-                    }} />
+                        setFlagId(false);
+                    }}
+                    onBlur={() => {
+                        if (onlyNumbers() ) {
+                            setIdMass(true);
+                            setFlagId(true);
+                        }
+                    }}
+                />
+                <div>{flagId && IdMass ? "!לא תקין " : flagId ? "שדה חובה!" : ""}</div>
 
             </div>
 
@@ -110,7 +169,21 @@ const Signup = (props) => {
                     value={email} onChange={(e) => {
                         console.log(e.target.value)
                         setEmail(e.target.value)
-                    }} />
+                        setFlagEmail(false)
+                    }}
+                    onBlur={() => {
+                        if (isNotEmail()) {
+                            setEmailMass(true);
+                            setFlagEmail(true);
+                        }
+                        else {
+                            setEmailMass(false);
+                        }
+                    }}
+
+                />
+                <div>{flagEmail && emailMass ? "!מייל לא תקין " : flagEmail ? "שדה חובה!" : ""}</div>
+
 
             </div>
 
@@ -121,13 +194,24 @@ const Signup = (props) => {
                     value={password} onChange={(e) => {
                         console.log(e.target.value)
                         setPassword(e.target.value)
-                    }} />
+                        setFlagPassword(false);
+                    }}
+                    onBlur={() => {
+                        if (password.length < 8) {
+                            setPasswordMass(true);
+                            setFlagPassword(true);
+                        }
+                    }}
+                />
+                <div>{flagPassword && PasswordMass ? "! לפחות 8 תווים" : flagPassword ? "שדה חובה!" : ""}</div>
+
+
             </div>
 
 
 
             <div className="btn-s">
-                
+
                 <div >
                     <button className="button btn-shwo" onClick={() => { getAllSubjects() }} >
                         👉  לחץ כדי לבחור מקצוע

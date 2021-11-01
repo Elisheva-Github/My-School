@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-
 import { useHistory } from "react-router-dom";
 import { viewTestsFromServer } from '../../services/viewTests'
 import { connect, useDispatch } from "react-redux";
@@ -11,22 +10,36 @@ import UseUploadFile from '../fileReader';
 
 const ViewTests = (props) => {
 
-
-    const { file, onfileChange } = UseUploadFile()
+    const [file, setFile] = useState('');
+    const { fileData, onfileChange } = UseUploadFile()
+    // const { file, onfileChange } = UseUploadFile()
     const [tests, setTests] = useState([]);
     // const [closeTest, setCloseTest] = useState(360);
 
 
     const postMyTestFile = async (lessonId, studentId, file) => {
+        // debugger
         let res = '';
-        console.log(file);
-        res = await postMyFileToServer("Test", lessonId, studentId, file);
+        // console.log(file);
+        let type = "Test"
+        res = await postMyFileToServer({ type, lessonId, studentId, file: fileData });
         console.log("postMyTestFileToServer", res);
     }
 
+
+
+    // const postMyTestFile = async (lessonId, studentId, file) => {
+    //     // debugger
+    //     let res = '';
+    //     // console.log(file);
+    //     let type = "Test"
+    //     res = await postMyFileToServer({ type, lessonId, studentId, file });
+    //     console.log("postMyTestFileToServer", res);
+    // }
+
     useEffect(async () => {
         viewTestsFromServer(props.subject).then((data) => {
-            debugger
+
             data = data.filter(x => new Date(x.date) - new Date() > 0 && new Date(x.date) - new Date() >= 30)
             data.sort(function (a, b) {
                 return new Date(a.date) - new Date(b.date);
@@ -71,17 +84,17 @@ const ViewTests = (props) => {
 
                     <td class="td1">   {tests[0]?.nameSubject}</td>
                     <td class="td3">   {tests[0]?.date}</td>
-                    {/* <td class="td4"> <a href={tests[0].file} download="file">download</a> <iframe src={tests[0].file} frameborder="0"></iframe></td> */}
-                    {/* <td> file? {<input type="file" onChange={onfileChange} placeholder="⬆" ></input>} </td> */}
+                    <td class="td4"> <a href={tests[0]?.file} download="file">download</a> <iframe src={tests[0]?.file} frameborder="0"></iframe></td>
+                    <td>{<input type="file" onChange={onfileChange} placeholder="⬆" ></input>} </td>
                     <button onClick={() => postMyTestFile(tests[0]._id, props.id, file)}> שלח</button>
                 </tr>}
                 <h3>בחודש הקרוב: ר</h3>
-                {tests?.map(t => (
+                {tests?.slice(1).map(t => (
                     <tr>
                         <td class="td1">   {t?.nameSubject}</td>
                         <td class="td3">   {t?.date}</td>
-                        {/* <td class="td4"> <a href={t.file} download="file">download</a> <iframe src={t.file} frameborder="0"></iframe></td>
-                        <td><input type="file" onChange={onfileChange} placeholder="⬆" ></input> </td> */}
+                        <td class="td4"> <a href={t?.file} download="file">download</a> <iframe src={t?.file} frameborder="0"></iframe></td>
+                        <td><input type="file" onChange={onfileChange} placeholder="⬆" ></input> </td>
                         <button onClick={() => postMyTestFile(t._id, props.id, file)}> שלח</button>
                     </tr>
                 ))}

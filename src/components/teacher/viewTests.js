@@ -66,15 +66,10 @@ const ViewTests = (props) => {
                 <tr>
                     <td class="td1"> {test?.nameSubject}</td>
                     <td class="td2"> {test?.date}</td>
-                    <td class="td3"> {test?.file}</td>
                     <button onClick={() => tst(test.marks, test?._id)}>הנבחנים</button>
                 </tr>
             ))}
         </table>}
-
-
-
-
         {<table>
             <thead>
                 <tr>

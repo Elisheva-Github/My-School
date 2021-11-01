@@ -17,22 +17,24 @@ const NewHw = (props) => {
     const [numLesson, setNumLesson] = useState(0);
     const [nameSubject, setNameSubject] = useState('');
     const [date, setDate] = useState('');
-    const { file, onfileChange } = UseUploadFile();
+    const [file, setFile] = useState('');
+    const { fileData, onfileChange } = UseUploadFile()
+    // const { file, onfileChange } = UseUploadFile();
     const [comment, setComment] = useState('');
     const [question1, setQuestion1] = useState('');
     const [question2, setQuestion2] = useState('');
-     let a= history.location.state?.id;
+    let a = history.location.state?.id;
     //id = history.location.state.id;
     console.log("aaa " + history.location.state?.id)
     // setNumLesson("5");
     // if (numLesson == 0)
- 
+
 
     const postHw = async (numLesson, nameSubject, date, file, comment, question1, question2) => {
-
+        debugger
         let res = '';
 
-        res = await postHwToServer({ numLesson, nameSubject, date, file, comment, question1, question2, subject: props.subject });
+        res = await postHwToServer({ numLesson, nameSubject, date, file: fileData, comment, question1, question2, subject: props.subject });
         history.push("/hw");
         console.log(res);
         alert("test send to server👍👍👍")
@@ -82,15 +84,15 @@ const NewHw = (props) => {
                         setQuestion2(e.target.value)
                     }} />
 
-                <button className="buttn" onClick={() =>{ postHw(history.location.state?.id?history.location.state?.id:numLesson, nameSubject, date, file, comment, question1, question2)}}>  הוספה   </button>
+                <button className="buttn" onClick={() => { postHw(history.location.state?.id ? history.location.state?.id : numLesson, nameSubject, date, file, comment, question1, question2) }}>  הוספה   </button>
 
 
-                {!history.location.state?.id&&
+                {!history.location.state?.id &&
                     <input type="number" placeholder=":הכנס מס שעור"
-                    value={numLesson} onChange={(e) => {
-                        console.log(e.target.value)
-                        setNumLesson(e.target.value)
-                    }} />}
+                        value={numLesson} onChange={(e) => {
+                            console.log(e.target.value)
+                            setNumLesson(e.target.value)
+                        }} />}
             </div>
         </>)
 }

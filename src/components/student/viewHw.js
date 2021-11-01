@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import Avatar from '@material-ui/core/Avatar';
@@ -10,15 +10,17 @@ import { postMyFileToServer } from '../../services/postMark';
 
 
 const ViewHw = (props) => {
-
-  const { file, onfileChange } = UseUploadFile()
+  const [file, setFile] = useState('');
+  const { fileData, onfileChange } = UseUploadFile()
+  // const { file, onfileChange } = UseUploadFile()
   const [lessons, setLessons] = useState([]);
 
-  const postMyHwFile=async (lessonId,studentId, file)=>{
+  const postMyHwFile = async (lessonId, studentId, file) => {
     let res = '';
     debugger
-    res = await postMyFileToServer("Lessons", lessonId,studentId,file);
-    console.log("postMyHwFileToServer",res);
+    let type = "Lessons"
+    res = await postMyFileToServer({ type, lessonId, studentId, file: fileData });
+    console.log("postMyHwFileToServer", res);
   }
 
   useEffect(async () => {
@@ -50,12 +52,12 @@ const ViewHw = (props) => {
             {l['hwQuestions']?.map(n =>
               <tr>
                 {/* <td > <a href={n.file} download="file">⬇</a> <iframe src={n.file} frameborder="0"></iframe></td> */}
-                <td > <a href={n.file} download="h.w">⬇</a></td>
+                <td > <a href={n.file} download="hw">⬇</a></td>
               </tr>)}
-              </td>
-            <td><input type="file"onChange={onfileChange} placeholder="⬆" ></input> </td>
-            
-            <button onClick={() => postMyHwFile(l._id,props.id, file)}> שלח</button>
+          </td>
+          <td><input type="file" onChange={onfileChange} placeholder="⬆" ></input> </td>
+
+          <button onClick={() => postMyHwFile(l._id, props.id, file)}> שלח</button>
         </tr>
       ))}
 

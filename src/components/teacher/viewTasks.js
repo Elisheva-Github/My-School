@@ -73,29 +73,27 @@ const Tasks = (props) => {
     <Header />
     {/* <Table></Table> */}
     {
-    <table>
-      <thead>
-        {students?.map(s => (
-          <tr>
-            <td > {s?.firstName}</td>
-          </tr>
+      <table>
+        <thead>
+          {students?.map(s => (
+            <tr>
+              <td > {s?.firstName}</td>
+            </tr>
+          ))}
+        </thead>
+        {tests?.map(t => (
+          <>
+            <tr class="td1"> {t?.nameSubject}</tr>
+            <tr>
+            </tr>
+          </>
         ))}
-      </thead>
-      {tests?.map(t => (
-        <>
-          <tr class="td1"> {t?.nameSubject}</tr>
-          <tr>
-          </tr>
-        </>
-      ))}
-    </table>
-  }
-
+      </table>
+    }
   </div>
   );
 }
 const mapStateToProps = (state) => {
-
   return {
     id: state.user?.user?._id,
     fname: state.user?.user?.firstName,

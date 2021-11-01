@@ -8,7 +8,7 @@ const MarkToUpdate = (props) => {
 
     const [mark, setMark] = useState('');
 
-    const postMark = async (id, mark, lesson) => {
+    const postMark = async (id, mark, lesson) => {debugger
         //  let teacherId = props.id;
         let marks = { id, mark };
         let type = props.type;

@@ -12,16 +12,19 @@ import '../../style/teacher/newClassRoom.css'
 
 const NewTest = (props) => {
     const dispatch = useDispatch();
+    const { fileData, onfileChange } = UseUploadFile()
+    const [file, setFile] = useState('');
 
     const [nameSubject, setNameSubject] = useState('');
     const [date, setDate] = useState('');
-    const { file, onfileChange } = UseUploadFile()
+    // const { file, onfileChange } = UseUploadFile()
     const [comment, setComment] = useState('');
 
-    const history = useHistory()
+    const history = useHistory();
     const postTest = async (nameSubject, date, file, comment) => {
+        debugger
         let res = '';
-        res = await postTestToServer({ teacher: props.teacher, nameSubject, date, file, comment, subject: props.subject });
+        res = await postTestToServer({ teacher: props.teacher, nameSubject, date, file: fileData, comment, subject: props.subject });
         history.push("/tests");
         console.log(res);
         alert("test send to server👍👍👍")
@@ -35,7 +38,6 @@ const NewTest = (props) => {
             <Header />
             <div class="all">
                 <div className="aa "> יצירת מבחן חדש</div>
-
 
                 <input type="text" className="a c" placeholder=":נושא"
                     value={nameSubject} onChange={(e) => {

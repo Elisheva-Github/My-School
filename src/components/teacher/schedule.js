@@ -17,8 +17,6 @@ const Schedule = (props) => {
     </div>
     )
 }
-
-
 const mapStateToProps = (state) => {
 
     return {
