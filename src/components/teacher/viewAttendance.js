@@ -20,12 +20,12 @@ const ViewAttendance = (props) => {
     return (<div>
         <Avatar>{props.fname && props.fname[0]}</Avatar>
         <Header />
-        {attendance&&attendance.map(a => (
+        {/* {attendance&&attendance.map(a => (
         <li>
           {a?.name}
           {a?.attendance} 
         </li>
-      ))}
+      ))} */}
 
     </div>
     )

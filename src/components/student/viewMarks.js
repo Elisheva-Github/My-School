@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 import HeaderS from '../headerS';
 import { getAllLessonsFromServer } from '../../services/getAllLessons';
 import { viewMyTestsFromServer } from '../../services/viewTests';
+import '../../style/student/s_previousLessons.css';
 
 const ViewMarks = (props) => {
 
@@ -29,25 +30,28 @@ const ViewMarks = (props) => {
   return (<div>
     <Avatar>{props.fname && props.fname[0]}</Avatar>
     <HeaderS />
-    <h3>:ציונים מהחודש הקרוב</h3>
-    <table>
-      <tr>
-        <td>שם שעור </td>
-        <td>ציון</td>
-      </tr>
 
-      {tests?.map(t => (
-        <tr>
-          <td class="td2">   {t?.nameSubject}</td>
-          {t['marks']?.filter((n) => n.studentId === props.id).map(a => (
-            <>
-              <td class="td2"> {a?.mark}</td>
-            </> )
-          )}
+    <div className="table">
+      <div className="pageTitle">ציונים מהחודש האחרון:</div>
+      <table>
+        <tr class="title">
+          <td>שם שעור </td>
+          <td>ציון</td>
         </tr>
-      ))}
-    </table>
-  </div >
+
+        {tests?.map(t => (
+          <tr>
+            <td class="td2">   {t?.nameSubject}</td>
+            {t['marks']?.filter((n) => n.studentId === props.id).map(a => (
+              <>
+                <td class="td2"> {a?.mark}</td>
+              </>)
+            )}
+          </tr>
+        ))}
+      </table>
+    </div >
+  </div>
   )
 }
 // cars.filter((item) => item.country === 'Germany');

@@ -17,16 +17,19 @@ const PreviousLessons = (props) => {
 
   useEffect(() => setless(history.location.state?.res || []), [history.location]);
   console.log("less", { lesss })
-
   return (
 
     <div>
       <Avatar>{props.fname && props.fname[0]}</Avatar>
       <HeaderS />
-      <div className="Table_lessons">
 
+      <div className="table">
+        <div class="pageTitle">
+    שיעורים קודמים:
+        </div>
+        <br />
         <table>
-          <tr>
+          <tr class="title">
             <td class="td1">שם המורה</td>
             <td class="td2">מס' שיעור</td>
             <td class="td3">נושא</td>
@@ -43,8 +46,9 @@ const PreviousLessons = (props) => {
               <td class="td1">   {herLess?.teacher}</td>
               <td class="td2">   {herLess?.numLesson}</td>
               <td class="td3">    {herLess?.lessonName}</td>
-              <td class="td4"> <a href={herLess.file} download="file">download</a> <iframe src={herLess.file} frameborder="0"></iframe></td>
-              <td class="td5">   {herLess?.date}</td>
+              <td class="td4"> <a href={herLess.file} download="file"> לחץ להורדה</a> </td>
+              {/* <td class="td4"> <a href={herLess.file} download="file">להורדה</a> <iframe class="aa" src={herLess.file} frameborder="0"></iframe></td> */}
+              <td class="td5">   {herLess?.date.slice(0, 10)}</td>
               <td class="td6"> {herLess?.notes}</td>
 
 

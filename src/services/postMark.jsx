@@ -14,7 +14,7 @@ export const postMarkToServer = (type, marks, lessonId) => {
 }
 
 export const postMyFileToServer = (data) => {
-  debugger
+  // debugger
   fetch('http://localhost:3000/postFile', {
     method: 'POST',
     headers: {

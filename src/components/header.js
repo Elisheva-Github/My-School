@@ -46,7 +46,7 @@ const Header = (props) => {
     <img className="att" src={"/images/att.png"} />
     <img className="menu-btn " src={"/images/‏‏logo.png"} /> */}
       <button className="menu-btn " onClick={previouslessonsClick}  > שיעורים קודמים </button>
-      <button className="menu-btn" onClick={viewTasksClick}>  גליון ציונים  </button>
+      {/* <button className="menu-btn" onClick={viewTasksClick}>  גליון ציונים  </button> */}
       <button className="menu-btn" onClick={viewTestsClick}> מבחנים   </button>
       <button className="menu-btn" onClick={viewHwClick}> תרגילים שהוגשו   </button>
       <button className="menu-btn" onClick={newClassClick}>יצירת שיעור חדש </button>

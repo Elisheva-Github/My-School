@@ -7,6 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import HeaderS from '../headerS';
 import { postMyFileToServer } from '../../services/postMark';
 import UseUploadFile from '../fileReader';
+import '../../style/student/s_previousLessons.css';
 
 const ViewTests = (props) => {
 
@@ -15,7 +16,6 @@ const ViewTests = (props) => {
     // const { file, onfileChange } = UseUploadFile()
     const [tests, setTests] = useState([]);
     // const [closeTest, setCloseTest] = useState(360);
-
 
     const postMyTestFile = async (lessonId, studentId, file) => {
         // debugger
@@ -62,9 +62,9 @@ const ViewTests = (props) => {
         )} */}
 
         {/* <a href={tests.file} download="file">downloadTest</a> <iframe src={tests.file} frameborder="0"></iframe> */}
-        <div className="Table_lessons">
 
-            {/* <table>
+
+        {/* <table>
                 {tests?.map(t => (
                 //     c = getDifferenceInDays(new Date(), t.date);
                 // if ( c< closeTest)
@@ -76,26 +76,38 @@ const ViewTests = (props) => {
                 </tr>
                 ))}
             </table> */}
-            <table>
 
-                <h3>:המבחן הקרוב ביותר</h3>
+        <div className="table">
+
+
+            <div class="pageTitle">
+                המבחן הקרוב ביותר:        </div>
+            <table>
                 {/* צריך למיין לפי תאריך רק מ התאריך הנוכחי */}
                 {<tr>
 
                     <td class="td1">   {tests[0]?.nameSubject}</td>
-                    <td class="td3">   {tests[0]?.date}</td>
-                    <td class="td4"> <a href={tests[0]?.file} download="file">download</a> <iframe src={tests[0]?.file} frameborder="0"></iframe></td>
+                    <td class="td3">   {tests[0]?.date.slice(0, 10)}</td>
+                    {/* <td class="td4"> <a href={tests[0]?.file} download="file">download</a> <iframe src={tests[0]?.file} frameborder="0"></iframe></td> */}
+                    <td class="td4"> <a href={tests[0]?.file} download="file">לחץ להורדה</a> </td>
                     <td>{<input type="file" onChange={onfileChange} placeholder="⬆" ></input>} </td>
-                    <button onClick={() => postMyTestFile(tests[0]._id, props.id, file)}> שלח</button>
+                    <button class="sendBtn" onClick={() => postMyTestFile(tests[0]._id, props.id, file)}> שלח</button>
                 </tr>}
-                <h3>בחודש הקרוב: ר</h3>
+            </table>
+        </div>      
+        <div className="table">
+
+            <div class="pageTitle">
+                בחודש הקרוב:        </div>
+            <table>
+
                 {tests?.slice(1).map(t => (
                     <tr>
                         <td class="td1">   {t?.nameSubject}</td>
-                        <td class="td3">   {t?.date}</td>
-                        <td class="td4"> <a href={t?.file} download="file">download</a> <iframe src={t?.file} frameborder="0"></iframe></td>
+                        <td class="td3">   {t?.date.slice(0, 10)}</td>
+                        <td class="td4"> <a href={t?.file} download="file">לחץ להורדה</a> </td>
                         <td><input type="file" onChange={onfileChange} placeholder="⬆" ></input> </td>
-                        <button onClick={() => postMyTestFile(t._id, props.id, file)}> שלח</button>
+                        <button class="sendBtn" onClick={() => postMyTestFile(t._id, props.id, file)}> שלח</button>
                     </tr>
                 ))}
             </table>

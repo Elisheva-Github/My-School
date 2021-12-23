@@ -4,6 +4,7 @@ import HeaderS from '../headerS';
 import Avatar from '@material-ui/core/Avatar';
 import { connect, useDispatch } from "react-redux";
 import { getAllScheduleFromServer } from '../../services/getAllSchedule';
+import '../../style/student/s_previousLessons.css';
 
 const Schedule = (props) => {
     const [schedule, setSchedule] = useState([]);
@@ -27,22 +28,27 @@ const Schedule = (props) => {
     return (<div>
         <Avatar>{props.fname && props.fname[0]}</Avatar>
         <HeaderS />
-        <h3>שעורים בחודש הקרוב:</h3>
-        {<table>
-            <thead>
-                <tr>
-                    <td class="td2">תאריך </td>
-                    <td class="td3">שעור</td>
-                </tr>
-            </thead>
+        <div className="table">
+            <div class="pageTitle">
+                מערכת שעות:
+            </div>
+            <br />
+            <table>
+                <thead>
+                    <tr className="title">
+                        <td class="td2">תאריך </td>
+                        <td class="td3">שעור</td>
+                    </tr>
+                </thead>
 
-            {schedule?.map(s => (
-                <tr>
-                    <td class="td1"> {s?.date}</td>
-                    <td class="td2"> {s?.lessonName}</td>
-                </tr>
-            ))}
-        </table>}
+                {schedule?.map(s => (
+                    <tr>
+                        <td class="td1"> {s?.date.slice(0, 10)}</td>
+                        <td class="td2"> {s?.lessonName}</td>
+                    </tr>
+                ))}
+            </table>
+        </div>
     </div>
     )
 }

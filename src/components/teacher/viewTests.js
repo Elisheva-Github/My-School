@@ -8,6 +8,7 @@ import { getAllTestsFromServer } from "../../services/getAllTests"
 import { viewTestsFromServer } from '../../services/viewTests';
 import { previousLessonToServer } from '../../services/previousLessons';
 import MarkToUpdate from './markToUpdate';
+import '../../style/student/s_previousLessons.css';
 
 const ViewTests = (props) => {
 
@@ -52,27 +53,35 @@ const ViewTests = (props) => {
     return (<div>
         <Avatar>{props.fname && props.fname[0]}</Avatar>
         <Header />
-
+        <div className="wrapper">
+        <div className="tableR">
+        <div class="pageTitle">
+רשימת המבחנים:        </div>
+        <br />
         {<table>
             <thead>
-                <tr>
+                <tr class="title">
                     <td class="td1">נושא</td>
                     <td class="td2">תאריך </td>
-                    <td class="td3">קובץ</td>
                 </tr>
             </thead>
 
             {tests?.map(test => (
                 <tr>
                     <td class="td1"> {test?.nameSubject}</td>
-                    <td class="td2"> {test?.date}</td>
-                    <button onClick={() => tst(test.marks, test?._id)}>הנבחנים</button>
+                    <td class="td2"> {test?.date.slice(0,10)}</td>
+                    <button class="sendBtn" onClick={() => tst(test.marks, test?._id)}>הנבחנים</button>
                 </tr>
             ))}
         </table>}
+        </div>
+        <div className="tableL">
+        <div class="pageTitle">
+ציוני התלמידים:        </div>
+        <br />
         {<table>
             <thead>
-                <tr>
+                <tr class="title">
                     <td class="td1">תלמיד</td>
                     <td class="td2">ציון </td>
                 </tr>
@@ -87,6 +96,10 @@ const ViewTests = (props) => {
                 </>
             ))}
         </table>}
+        </div>
+        <button className="sendBtn newTest"onClick={newTest}>מבחן חדש</button>
+
+        </div>
 
 
 
@@ -99,7 +112,7 @@ const ViewTests = (props) => {
         </div> */}
 
 
-        <button onClick={newTest}>מבחן חדש</button>
+       
     </div>
     )
 }

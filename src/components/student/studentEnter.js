@@ -57,7 +57,7 @@ const Students = (props) => {
     <div>
       <Avatar>{props.fname && props.fname[0]}</Avatar>
       <HeaderS />
-     
+
     </div>
   );
 }

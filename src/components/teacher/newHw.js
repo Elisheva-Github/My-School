@@ -87,12 +87,12 @@ const NewHw = (props) => {
                 <button className="buttn" onClick={() => { postHw(history.location.state?.id ? history.location.state?.id : numLesson, nameSubject, date, file, comment, question1, question2) }}>  הוספה   </button>
 
 
-                {!history.location.state?.id &&
+                {/* {!history.location.state?.id &&
                     <input type="number" placeholder=":הכנס מס שעור"
                         value={numLesson} onChange={(e) => {
                             console.log(e.target.value)
                             setNumLesson(e.target.value)
-                        }} />}
+                        }} />} */}
             </div>
         </>)
 }

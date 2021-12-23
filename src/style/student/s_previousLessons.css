@@ -1,50 +1,116 @@
-.Table_lessons{
+.pageTitle {
+    font-size:20px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.table{
     position: relative;
-    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 7px;
+    background:#EEF8FD;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 30px;
+    width: 60vw;
+    height: auto;
+    border-radius:10px;
+    direction: rtl;
+
+}
+
+.tableR{
+    position: relative;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: flex-start;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 0%;
-    background: #EEF8FD;
+    background:#EEF8FD;
     width: 80%;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding: 5%;
-    width: 50vw;
-    height: 100vh;
+    padding: 30px;
+    width: 60vw;
+    height: auto;
+    border-radius:10px;
+    direction: rtl;
+
+}
+.tableL{
+    position: relative;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0px;
+    background:#EEF8FD;
+    width: 80%;
+    margin-left: 3%;
+    margin-right: 1.5%;
+    padding: 30px;
+    width: 60vw;
+    height: auto;
+    border-radius:10px;
+    direction: rtl;
+
 }
 
-
-/* td {
-    position: relative;
+.wrapper{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
-    align-items: flex-start;
-    background-color: #F2F2F2;
-    margin-top: -1%;
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    border-end-end-radius: 25%;
-    border-bottom-left-radius: 25%;
-    font-size: 112%;
-    text-align: center;
-    padding:3%;
-} */
+    flex-direction: row;
+    direction: rtl;
+    width: 77vw;
+    right: 0;
+}
+
+.sendBtn{
+    background-color: #00C694;
+    color: #EEF8FD;
+    padding: 15px;
+    border-radius: 10px;
+    /* height: 73px; */
+    font-size: medium;
+    cursor: pointer;
+    border: solid;
+}
+
+table {
+    direction: rtl;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 td {
-    background-color: #F2F2F2;
+    background-color: white;
     border-radius: 5px;
     border: none;
     height: 15px;
     color: #1c2c53;
     text-align: center;
-    font-family: inherit;
-    padding-bottom: 10px;
+    font-size: medium;
+    padding: 15px 15px 15px 15px;
+    border-radius: 7px;
 
+}
+
+
+.newTest{
+    margin-left: 20px;
+    margin-right: -20px;
+    width: 180px;
+    height: 100px;
+    margin-top:0;
+}
+
+.title {
+    font-weight: bold;
 }
 
 th {

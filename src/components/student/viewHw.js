@@ -7,6 +7,7 @@ import HeaderS from '../headerS';
 import UseUploadFile from '../fileReader';
 import { getAllLessonsFromServer } from '../../services/getAllLessons';
 import { postMyFileToServer } from '../../services/postMark';
+import '../../style/student/s_previousLessons.css';
 
 
 const ViewHw = (props) => {
@@ -36,32 +37,39 @@ const ViewHw = (props) => {
 
 
 
+    <div className="hw_table">
+      <div className="table">
+        <div class="pageTitle">
+          שיעורי בית:
+        </div>
+        <br />
+        {<table>
+          <tr className="title">
+            <td>שם שעור </td>
+            <td>תאריך</td>
+            <td>להוריד ש.ב</td>
+            <td>להעלות ש.ב</td>
+          </tr>
+          {lessons?.map(l => (
+            <tr>
+              <td>  {l.lessonName}</td>
+              <td>  {l.date.slice(0, 10)}</td>
+              <td >
+                {l['hwQuestions']?.map(n =>
+                  <tr>
+                    {/* <td > <a href={n.file} download="file">⬇</a> <iframe src={n.file} frameborder="0"></iframe></td> */}
+                    <td > <a href={n.file} download="hw">לחץ להורדה</a></td>
+                  </tr>)}
+              </td>
+              <td><input type="file" onChange={onfileChange} placeholder="⬆" ></input> </td>
 
-    {<table>
-      <tr>
-        <td>שם שעור </td>
-        <td>תאריך</td>
-        <td>להוריד ש.ב</td>
-        <td>להעלות ש.ב</td>
-      </tr>
-      {lessons?.map(l => (
-        <tr>
-          <td>  {l.lessonName}</td>
-          <td>  {l.date}</td>
-          <td >
-            {l['hwQuestions']?.map(n =>
-              <tr>
-                {/* <td > <a href={n.file} download="file">⬇</a> <iframe src={n.file} frameborder="0"></iframe></td> */}
-                <td > <a href={n.file} download="hw">⬇</a></td>
-              </tr>)}
-          </td>
-          <td><input type="file" onChange={onfileChange} placeholder="⬆" ></input> </td>
+              <button class="sendBtn" onClick={() => postMyHwFile(l._id, props.id, file)}> שלח</button>
+            </tr>
+          ))}
 
-          <button onClick={() => postMyHwFile(l._id, props.id, file)}> שלח</button>
-        </tr>
-      ))}
-
-    </table>}
+        </table>}
+      </div>
+    </div>
   </div>
   )
 }

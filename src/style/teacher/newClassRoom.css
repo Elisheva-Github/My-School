@@ -24,21 +24,19 @@
     }
 
     .all{ 
-        /* position: relative;
-        /* display:flex; */
-        /* margin-top: 0%;
-        width: 500px;
-        height: 500px;
-        left: 216px;
+        position: relative;
+        width: 400px;
+        /* height: auto; */
+        /* left: 30.875rem; */
+        /* top: 6rem; */
         background: #EEF8FD;
-        border-radius: 70px; */
-        position: absolute;
-        width: 28.25rem;
-        height: 30.75rem;
-        left: 30.875rem;
-        top: 6rem;
-        background: #EEF8FD;
-        border-radius: 4.375rem
+        border-radius: 10px;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        padding: 20px;
         }
 
         /* .menu-btn {
@@ -53,58 +51,58 @@
         }         */
 .aa{
     text-align: center;
-    bottom:90%;
-    font-size: 120%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
 }
         .a{
             
             border: none;
             text-align: right;
             color: #000000;
-            position: absolute;
-            left: 20%;
-            right: 0%;
+            /* position: absolute; */
+            /* left: 20%; */
+            /* right: 0%; */
             width: 300px;
-            height: 26px;
+            height: 20px;
             border-radius: 30px;
-            font-family: inherit; 
+            font-family: inherit;
             cursor: pointer;
-            padding: 10px
+            padding: 10px;
+            margin: 5px auto;
+            direction: rtl;
+            font-size: small;
         }
 
         .b{
-            bottom: 80%;
         }
         .c{
-            bottom: 68%;
-        }
+                background-color: #ffffff;        
+            }
         .d{
-            bottom: 56%;
+            background-color: #ffffff;        
+
         }
         .e{
-            bottom: 44%;
         }
         .f{
-            bottom: 32%;
         }
         .g{
-            bottom: 20%;
         }
 
         .buttn{
-          border: none;
-            width: 50%;
-            top: 85%;
-            height: 8%;
-            left: 25%;
+            width: 40%;
+            /* top: 85%; */
+            /* height: 10%; */
+            /* left: 25%; */
             background: #00C694;
             border-radius: 42px;
-            position: absolute;
-            font-family: Ploni ML v2 AAA;
+            /* position: absolute; */
             font-style: normal;
-            font-weight: 600;
-            font-size: 21px;
-            line-height: 31px;
+            font-size: medium;
             text-align: center;
             color: #EEF8FD;
-            }
+            margin: 6px auto;
+            height: 40px;
+            margin-top: 13px;
+        }
