@@ -20,6 +20,8 @@ import S_viewTests from './components/student/s_viewTests';
 import ViewHw from './components/student/viewHw';
 import ViewMarks from './components/student/viewMarks';
 import Admin from './components/admin';
+import YouTube from './components/youTube';
+import ReactPlayer from './components/youTube';
 import Zoom from './components/zoom';
 
 import './App.css';
@@ -41,7 +43,7 @@ function App() {
           <TeacherEnter />
         </Route>
         <Route path="/student">
-          <StudentEnter  />
+          <StudentEnter />
         </Route>
         <Route path="/previousLessons">
           <PreviousLessons />
@@ -64,13 +66,13 @@ function App() {
         <Route path="/newHw">
           <NewHw />
         </Route>
-     
+
 
         <Route path="/hw">
           <Hw />
         </Route>
 
-       
+
         <Route path="/forgotPassword">
           <ForgotPassword />
         </Route>
@@ -98,6 +100,12 @@ function App() {
         </Route>
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route path="/youTube">
+          <YouTube />
+        </Route>
+        <Route path="/reactPlayer">
+          <ReactPlayer />
         </Route>
         <Route path="/zoom">
           <Zoom />
